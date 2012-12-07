@@ -1,4 +1,4 @@
 MonoX Templates
 ==============
 
-MonoX CMS Templates
+MonoX CMS Theme & Templates
