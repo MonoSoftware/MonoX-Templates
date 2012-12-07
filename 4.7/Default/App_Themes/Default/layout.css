@@ -1,0 +1,260 @@
+@media (max-width: 1200px)
+{
+	NAV UL LI A,
+	NAV UL LI A:link,
+	NAV UL LI A:visited
+	{
+		padding: 0px 10px;
+	}
+}
+@media (min-width: 768px) and (max-width: 940px)
+{
+	
+}
+
+@media (max-width: 767px) 
+{
+	.what-box
+	{
+		width: 100%;
+	}
+}
+@media (min-width: 480px) and (max-width: 767px)
+{
+	HEADER .bottom-section
+	{
+		height: 143px;
+	}
+	HEADER .bottom-section IMG.membership-bg
+	{
+		display: none;
+	}
+	HEADER .bottom-section .membership-search .membership-navigation-holder,
+	HEADER .bottom-section .membership-search .search-holder
+	{
+		width: 100%;
+		top: 25px;
+		left: 0px;
+	}	
+	HEADER .bottom-section .membership-search .search-holder
+	{
+		width: 100%;
+		position: inherit;
+		top: 75px;
+		left: 0px;
+	}
+}
+@media (max-width: 480px) 
+{
+	HEADER .bottom-section
+	{
+		height: 168px;
+	}
+	HEADER .bottom-section IMG.membership-bg
+	{
+		display: none;
+	}
+	HEADER .bottom-section .membership-search .membership-navigation-holder,
+	HEADER .bottom-section .membership-search .search-holder
+	{
+		width: 100%;
+		top: 25px;
+		left: 0px;
+	}	
+	HEADER .bottom-section .membership-search .search-holder
+	{
+		width: 100%;
+		position: inherit;
+		top: 100px;
+		left: 0px;
+	}
+	.membership-navigation .login-name
+	{
+		float: none;
+		clear: both;
+		padding-top: 10px;
+	}
+	.what-box
+	{
+		width: 100%;
+	}
+}
+
+
+/* Responsive navigation */
+@media (max-width: 959px)
+{
+	HEADER .top-section
+	{
+		position: inherit;
+	}
+	NAV
+	{
+		position: absolute;
+		float: none;
+		margin: 0;
+		padding: 0;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 2000;
+	}
+	.administrator-mode
+	{
+		top: 40px;
+	}
+    NAV a.mobile_handle
+    {
+    	height: 105px;
+    	background: #2B2C31;
+    	display: block;
+    	float: right;
+		padding: 0px 25px;
+    	font-family: 'BebasNeueRegular';
+		font-size: 18px;
+		text-decoration: none;
+		color: #fff;
+    	text-align: center;
+    	cursor: pointer;
+    	line-height: 105px;
+    	-moz-border-radius-bottomleft: 3px;
+		-webkit-border-bottom-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+    }   
+    NAV UL
+    {
+    	display: none;
+    }
+    NAV UL LI
+    {
+    	display: block;
+    	position: relative;
+    	float: none;
+    	padding: 0;
+    	background: #2B2C31;
+    	border-top: 1px solid #999;
+    }
+    NAV UL LI A,
+    NAV UL LI A:link,
+    NAV UL LI A:visited
+    {
+    	height: auto;
+    	display: block;
+    	position: relative;
+    	float: none;
+    	padding: 15px 10px;
+    	clear: both;
+    	line-height: normal;
+    }
+    /* Second Level */
+    NAV UL UL
+    {
+    	display: none;
+    	position: relative;
+    	width: 100%;
+    	top: 0;
+    	left: 0;
+    	margin: 0;
+    	padding: 0;
+    	background: none;
+    }
+    NAV UL UL A,
+    NAV UL UL A:link,
+    NAV UL UL A:visited
+    {
+    	background: #3f4046;
+    	color: #fff;
+    	padding: 15px 10px 15px 25px;
+    }
+    NAV UL UL A:hover
+    {
+    	background: #3f4046;
+    }
+    /* Third level */
+    NAV UL UL UL
+    {
+    	top: 0;
+    	left: 0;
+    	position: relative;
+    }
+    NAV UL UL UL A,
+    NAV UL UL UL A:link,
+    NAV UL UL UL A:visited
+    {
+    	background: #595a61;
+    	padding: 15px 10px 15px 45px;
+    }
+    NAV UL UL UL A:hover
+    {
+    	background: #595a61;
+    }
+    NAV UL UL UL UL A,
+    NAV UL UL UL UL A:link,
+    NAV UL UL UL UL A:visited
+    {
+    	background: #787a81;
+    	padding: 15px 10px 15px 65px;
+    }
+    NAV UL UL UL UL A:hover
+    {
+    	background: #787a81;
+    }
+    NAV .sub_nav
+    {
+    	position: absolute;
+    	right: 0px;
+    	top: 0px;
+    	width: 15%;
+    	margin: 0;
+    	cursor: pointer;
+    	padding: 23px;
+    }
+    NAV .arrow_up
+    {
+    	float: right;
+    	width: 0;
+    	height: 0;
+    	padding: 0;
+    	border-left: 5px solid transparent;
+    	border-right: 5px solid transparent;
+    	border-bottom: 5px solid #fff;
+    }
+    NAV .arrow_down
+    {
+    	float: right;
+    	width: 0;
+    	height: 0;
+    	padding: 0;
+    	border-left: 5px solid transparent;
+    	border-right: 5px solid transparent;
+    	border-top: 5px solid #fff;
+    }
+    NAV UL LI .sub-nav-desktop
+	{
+		display: none;
+	}
+}
+
+@font-face
+{
+	font-family: 'BebasNeueRegular';
+    src: url('Fonts/bebasneue-webfont.eot');
+    src: url('Fonts/bebasneue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Fonts/bebasneue-webfont.woff') format('woff'),
+         url('Fonts/bebasneue-webfont.ttf') format('truetype'),
+         url('Fonts/bebasneue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face
+{
+    font-family: 'ArialNarrowCustom';
+    src: url('Fonts/arialn-webfont.eot');
+    src: url('Fonts/arialn-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Fonts/arialn-webfont.woff') format('woff'),
+         url('Fonts/arialn-webfont.ttf') format('truetype'),
+         url('Fonts/arialn-webfont.svg#ArialNarrow') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

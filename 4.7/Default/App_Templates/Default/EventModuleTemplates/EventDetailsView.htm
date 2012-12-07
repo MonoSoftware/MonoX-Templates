@@ -1,0 +1,25 @@
+﻿<div class="event-simple-content <# ItemCssClass #>">
+    <h2><# Title #></h2>
+    <div class="date"><# StartTime #> - <# EndTime #></div>
+    <p>
+        <strong><# PlaceLocalizedTitle #></strong>
+        <# Place #>
+    </p>
+    <div>
+        <strong><# DescriptionLocalizedTitle #></strong> <# Description #> 
+    </div>
+    #if( $Editable )
+    <div class="options">
+        #if ($UpdateActionVisible)
+        <a title="<# UpdateAction-ToolTip #>" href="<# UpdateAction-URL #>" >
+            <# UpdateAction-ToolTip #>
+        </a>
+        #end
+        #if ($DeleteActionVisible)
+        <a title="<# DeleteAction-ToolTip #>" href="<# DeleteAction-URL #>" <# DeleteAction-Attributes #>>
+            <# DeleteAction-ToolTip #>
+        </a>
+        #end
+    </div>
+    #end
+</div>
