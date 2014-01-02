@@ -1,0 +1,12 @@
+.user-account {
+	select {
+		@include form-element();
+	}
+	.offset {
+		input {
+			float: left;
+			margin-top: emCalc(5px);
+			margin-right: emCalc(10px);
+		}
+	}
+}

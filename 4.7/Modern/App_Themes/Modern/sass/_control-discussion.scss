@@ -1,0 +1,566 @@
+.discussion {
+	@include grid-column(12);
+	.discussion {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	
+	.discussion-widget {
+		border-bottom: 1px dotted $dark-gray;
+		margin: baseCalc(1) 0;
+		padding-bottom: emCalc(12px);
+	}
+	.date {
+		@include adjust-font-size-to(13px);
+		color: $darkest-gray;
+		margin-top: $baseUnit / 2;
+	}
+	.topic-title-holder {
+		@include grid-row($behavior: nest);
+		.topic-title-wrapper {
+			@include grid-column(12);
+			@media #{$small} {
+				@include grid-column(9);
+			}
+		}
+		.back-button-wrapper {
+			@include grid-column(12);
+			.back-link {
+				float: left;
+				display: block;
+				@include vMargin(2, bottom);
+			}
+			@media #{$small} {
+				@include grid-column(3);
+				.back-link {
+					float: right;
+					@include vMargin(2, top);
+				}
+			}
+		}
+	}
+	.main-options {
+		@include grid-row();
+		a.blog-button{
+			@extend .regular-button;
+			@extend .secondary;
+			margin: 0;
+			width: 100%;
+		}
+		a.add-new-post{
+			@extend .regular-button;
+			margin-bottom: 0;
+			width: 100%;
+		}
+		.button-wrapper{
+			@include grid-column(12, $collapse: true);
+			margin-top: emCalc(2px);
+			@media #{$small} {
+				@include grid-column(3, $collapse: true);
+				@include hSpacer(.3);
+				margin-top: 0px;
+				&:first-child{
+					padding-left: 0;
+				}
+				&:last-child{
+					padding-right: 0;
+				}
+			}
+		}
+		ul{
+			list-style-type: none;
+			width: 100%;
+			margin-bottom: 0px;
+			.first-level {
+				margin-top: 0px;
+			}
+			li{
+				position: relative;
+				display: block;
+				margin-top: 2px;
+				ul.level0 {
+					display: block;
+					margin-left: 0;
+				}
+				&:hover{
+					ul.level0{
+						display: block;
+						margin-left: 0;
+					}
+				}
+				@media #{$small} {
+					margin-top: 0px;
+					ul.level0 {
+						display: none;
+					}
+					&:hover{
+						ul.level0{
+							position: absolute;
+							z-index: 99;
+							li{
+								margin-top: 2px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.date-author {
+		font-size: emCalc(14px);
+		@include vMargin(.5, bottom);
+	}
+	.discussion-item {
+		@extend .boxed-content;
+		@include vMargin(2);
+		position: relative;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	.last, .date-author{
+		font-size: emCalc(14px);
+		& > span{
+			color: $even-darker-gray;
+		}
+		a{
+			span{
+				color: $even-darker-gray;
+			}
+		}
+	}
+	.notification-holder {
+		@include grid-row($behavior: nest);
+		.date-author {
+			@include grid-column(12);
+			@include vSpacer(1, top);
+			@media #{$small} {
+				@include grid-column(8);
+			}
+		}
+		.notifications {
+			@include grid-column(12);
+			span{
+				@include vSpacer(1);
+				margin-right: emCalc(15px);
+				display: inline-block;
+			}
+			@media #{$small} {
+				@include grid-column(4);
+				span{
+					float: right;
+					margin-left: emCalc(15px);
+					margin-right: emCalc(0);
+				}
+			}
+		}
+	}
+	.title-wrapper{
+		@include grid-row($behavior: nest);
+		@include vMargin(1, bottom);
+		@include gradientBackground($gradient-color3, $gradient-color4);
+		.title-holder {
+			@include grid-column(12);
+			h2{
+				@include vMargin(0.5);
+				a {
+					color: $white;
+				}
+			}
+			@media #{$small} {
+				@include grid-column(7);
+				h2 {
+					a {
+						color: $white;
+					}
+				}
+			}
+		}
+		.info-box {
+			@include grid-column(12);
+			@include vSpacer(1);
+			background-color: $gray;
+			a, strong{
+				float: left;
+				margin-right: emCalc(15px);
+				font-weight: normal;
+				color: $even-darker-gray;
+			}
+			@media #{$small} {
+				@include grid-column(5);
+				@include vSpacer(2, top);
+				background-color: transparent;
+				a, strong{
+					font-size: emCalc(36px);
+					float: right;
+					margin-left: emCalc(15px);
+					margin-right: emCalc(0);
+					font-family: $header-font-family;
+					color: $white;
+					span {
+						font-size: 16px;
+						font-family: $body-font-family;
+					}
+				}
+			}
+		}
+	}
+	.answer-label {
+		a{
+			color: $success-color;
+		}
+	}
+	.discussion-list-bottom-area{
+		@include grid-row($behavior: nest);
+		border-top: 1px dotted $gray;
+		.last{
+			@include grid-column(12);
+			.last-holder {
+				@include vSpacer(2, top);
+				display: inline-block;
+				line-height: 1.5;
+			}
+		}
+		.tags {
+			@include grid-column(12);
+			a {
+				@extend .regular-button;
+				padding: emCalc(5px);
+				background-color: $lite-gray;
+				color: $darker-gray;
+				border: none;
+				margin-right: emCalc(2px);
+				@include vMargin(2, top);
+				margin-bottom: emCalc(4px);
+			}
+		}
+		.options{
+			@include grid-column(12);
+			@include vSpacer(2);
+			a{
+				@extend .regular-button;
+				@extend .secondary;
+				font-size: emCalc(14px);
+				padding: emCalc(5px);
+				margin-right: emCalc(2px);
+				margin-bottom: emCalc(4px);
+				@media #{$small} {
+					padding: emCalc(5px) emCalc(10px);
+					margin-bottom: 0;
+				}
+			}
+			.share {
+				a{
+					padding: 0;
+					background-color: transparent;
+					border: none;
+				}
+			}
+		}
+	}
+	.board-pin-background, .topic-pin-background {
+		h2 {
+			padding-left: emCalc(20px);
+			background: url(../img/pin-icon-s.png) left center no-repeat transparent;
+			@media #{$small} {
+				padding-left: emCalc(30px);
+				background: url(../img/pin-icon.png) 10px center no-repeat transparent;
+			}
+		}
+	}
+	.spamComment {
+		background-color: lighten($alert-color, 55);
+	}
+	.unapprovedComment {
+		background-color: lighten($success-color, 55);
+	}
+	.discussion-message {
+		h1{
+			span {
+				color: $white;
+				&:after{
+					content: "\003A";
+					margin-right: emCalc(5px);
+				}
+			}
+		}
+		.main-options {
+			.button-wrapper {
+				@media #{$small} {
+					@include grid-column(2);
+					@include hSpacer(.3);
+				}
+			}
+			.button-wrapper-long {
+				@media #{$small} {
+					@include grid-column(3);
+					@include hSpacer(.3);
+				}
+			}
+		}
+		.dis-message-notification-holder {
+			@include grid-row($behavior: nest);
+			@include vMargin(1,bottom);
+			.message-info {
+				@include grid-column(12);
+				@media #{$small} {
+					@include grid-column(11);
+				}
+			}
+			.button-share {
+				@include grid-column(12);
+				@media #{$small} {
+					@include grid-column(1);
+				}
+			}
+		}
+		.progress-holder{
+			position: absolute;
+			right: emCalc(-50px);
+		}
+	}
+}
+.related-content {
+	@extend .boxed-content;
+	@include clearfix();
+	@include vMargin(2,top);
+}
+.related-topics {
+	ul{
+		li{
+			list-style-type: none;
+			@include vSpacer(1, bottom);
+			border-bottom: 1px dotted $gray;
+			h4{
+				margin: 0;
+			}
+		}
+	}
+}
+.discussion-message-post {
+	@include vMargin(2);
+	@include clearfix();
+	.avatar{
+		@include grid-column(12, $collapse:true);
+		img{
+			display: none;
+		}
+		@media #{$small} {
+			@include grid-column(2);
+			img{
+				display: block;
+				height: auto !important;
+				border: 1px solid $dark-gray !important;
+				@include border-radius(75%);
+				margin: 0 auto;
+				width: emCalc(120px) !important;
+				&:hover {
+					border-color: $gray !important;
+					transition: border 0.3s;
+				}
+			}
+		}
+		.author, .mark{
+			a{
+				@extend .regular-button;
+				width: 100%;
+				margin-bottom: 0px;
+				//margin-top: emCalc(3px);
+				color: $white;
+				@media #{$small} {
+					font-size: emCalc(12px);
+					padding: emCalc(10px);
+				}
+
+			}
+			@media #{$small} {
+				a{
+					@include vMargin(1, top);
+				}
+			}
+		}
+		.mark{
+			a{
+				@extend .secondary;
+			}
+			.topic-answer{
+				a{
+					background-color: $success-color;
+					border: 1px solid darken($success-color, 10%);
+					&:hover{
+						background-color: darken($success-color, 10%);
+					}
+				}
+			}
+		}
+	}
+	.content{
+		@include grid-column(12);
+		@extend .boxed-content;
+		@include vMargin(0);
+		@media #{$small} {
+			@include grid-column(10);
+			&:after, &:before { 
+				content: ' ';
+				display: block;
+				position: absolute;
+				border-style: solid;
+				width: 0;
+				height: 0;
+			}
+			&:after {
+				top: 25px;
+				left: -18px;
+				border-color: transparent white transparent transparent;
+				border-width: 9px;
+			}
+			&:before {
+				top: 24px;
+				left: -20px;
+				border-color: transparent $dark-gray transparent transparent;
+				border-width: 10px;
+			}
+		}
+	}
+	.monox-rating{
+		@include vSpacer(1);
+		border-top: 1px dotted $gray;
+	}
+	.number{
+		position: absolute;
+		bottom: emCalc(30px);
+		right: emCalc(20px);
+	}
+}
+.message-pin-background {
+	@media #{$small} {
+	background-image: url(../img/pin-icon-s-g.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	}
+}
+.message-pin {
+	background-image: url(../img/pin-icon-s-g.png);
+	background-repeat: no-repeat;
+	background-position: 98% emCalc(20px);
+	@media #{$small} {
+		background-image: none;
+	}
+}
+.discussion-post-top {
+	@include grid-row($behavior: nest);
+	@include vSpacer(2);
+	border-bottom: 1px dotted $gray;
+	.date-holder{
+		@include grid-column(12);
+		@media #{$small} {
+			@include grid-column(4);
+		}
+	}
+	.info-box{
+		@include grid-column(12);
+		@include vSpacer(1, top);
+		@media #{$small} {
+			@include grid-column(8);
+			@include vSpacer(0);
+			.counter {
+				float: right;
+			}
+		}
+	}
+}
+.discussion-item {
+	.file-gallery {
+		@include vSpacer(1);
+		border-top: 1px dotted $gray;
+		h3{
+			font-family: $bold-font-family;
+			font-size: emCalc(16px);
+		}
+	}
+}
+.discussion-form {
+	@extend .boxed-content;
+	@include vMargin(1);
+	@include vSpacer(0);
+	dl {
+		margin-bottom: 0;
+	}
+	.discussion-styled-button, .upload-button {
+		margin-bottom: 0;
+	}
+}
+.board-container{
+	.discussion-form {
+		@include vSpacer(1);
+		& > label, .label{
+			font-family: $header-font-family;
+			font-size: emCalc(26px);
+			@include vMargin(1);
+		}
+		.common-label{
+			font-family: $body-font-family;
+			font-size: emCalc(16px);
+			@include vMargin(0);
+		}
+		.check-box-list {
+			@include vSpacer(2, top);
+		}
+	}
+}
+.discussion-message-title-wrapper {
+	@include grid-row();
+	@include vMargin(2);
+	@include gradientBackground($gradient-color3, $gradient-color4);
+	.title-holder{
+		@include grid-column(12);
+		h1 {
+			color: $white;
+		}
+	}
+	.notif-holder{
+		@include grid-column(12);
+		@include vSpacer(2, bottom);
+		margin-top: emCalc(-15px);
+		color: $white;
+		a{
+			color: $white;
+			text-decoration: underline;
+		}
+	}
+}
+.discussion-message-top {
+	@include grid-row($behavior: nest);
+	@include vMargin(1, top);
+	.button-share {
+		@include grid-column(12);
+		@media #{$small} {
+			@include grid-column(2);
+		}
+	}
+	.back-button-wrapper {
+		@include grid-column(12);
+		.back-link {
+			@include vSpacer(.5, top);
+			display: block;
+		}
+		@media #{$small} {
+			@include grid-column(10);
+			text-align: right;
+		}
+	}
+}
+.discussion-topics-form {
+	.empty-override {
+		display: none;
+	}
+}
+.discussion-widget {
+	@include vSpacer(1);
+	border-bottom: 1px dotted $gray;
+	.date {
+		font-family: $serif-font-family;
+		@include adjust-font-size-to(14px);
+		font-style: italic;
+		color: $darker-gray;
+	}
+}

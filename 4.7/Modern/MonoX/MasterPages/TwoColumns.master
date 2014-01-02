@@ -1,0 +1,18 @@
+﻿<%@ Master 
+Language="C#" 
+MasterPageFile="~/MonoX/MasterPages/Default.master" 
+AutoEventWireup="true" 
+CodeBehind="TwoColumns.master.cs" 
+Inherits="ProjectName.Web.MonoX.MasterPages.TwoColumns" %>
+
+
+<asp:Content ID="Content2" ContentPlaceHolderID="cp" runat="server">
+    <div class="content-wrapper two-columns">
+        <div class="main-content">
+            <asp:ContentPlaceHolder ID="cp1" runat="server"></asp:ContentPlaceHolder>
+        </div>
+        <div class="side-content">
+            <asp:ContentPlaceHolder ID="cp2" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>

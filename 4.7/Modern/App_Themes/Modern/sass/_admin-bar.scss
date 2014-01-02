@@ -1,0 +1,407 @@
+.open-close-icon {
+	width: 40px;
+	background-color: $darkest-gray;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	.open-close-options {
+		padding: 0 emCalc(10px);
+	}
+}
+.admin-bar-holder {
+	@include hSpacer(2);
+	@include vSpacer(1);
+	@include clearfix();
+	background-color: $darkest-gray;
+	color: $even-darker-gray;
+	font-family: "Helvetica", "Arial", Sans;
+	font-size: emCalc(13px);
+	line-height: 1.5em;
+	cursor: pointer;
+	& > div {
+		float: left;
+	}
+	.label-holder {
+		display: none;
+	}
+	.admin-holder, .login-holder {
+		background: url(../img/GoToAdmin.png) center center no-repeat transparent;
+		margin-top: emCalc(5px);
+		width: emCalc(20px);
+		height: emCalc(20px);
+		overflow: hidden;
+		text-indent: -9999px;
+		margin-right: emCalc(40px);
+	}
+	.login-holder {
+		background: url(../img/LogOutAdmin.png) center center no-repeat transparent;
+	}
+	.info-holder {
+		font-size: emCalc(11px);
+		padding-top: emCalc(10px);
+	}
+	.help-holder {
+		width: emCalc(20px);
+		height: emCalc(20px);
+		margin-right: emCalc(40px);
+	}
+	@media #{$medium-tablet} {
+		line-height: 2.5em;
+		& > div {
+			float: left;
+			margin-left: emCalc(20px);
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+		.label-holder {
+			display: block;
+		}
+		.admin-holder, .login-holder {
+			background: none; 
+			margin-top: emCalc(0px);
+			width: auto;
+			height: auto;
+			text-indent: 0px;
+			margin-right: emCalc(0px);
+		}
+		.login-holder {
+			background: none;
+		}
+		.info-holder {
+			font-size: emCalc(11px);
+			padding-top: emCalc(0px);
+		}
+		.help-holder {
+			width: emCalc(20px);
+			height: emCalc(20px);
+			margin-right: emCalc(0px);
+		}
+		a{
+			color: lighten($admin-color, 20%);
+			&:hover {
+				color: lighten($admin-color, 40%);
+			}
+		}
+		.open-close-options {
+			float: right;
+		}
+		.help-holder, .info-holder {
+			float: right;
+			margin-right: emCalc(30px);
+		}
+	}
+	.RadComboBox {
+		.rcbInput {
+			border-color: transparent !important;
+		}
+	}
+}
+.property-holder {
+	background-color: $darkest-gray;
+	color: $even-darker-gray;
+	input, select, .rcbInputCell, .reContentArea, .RadComboBox {
+		background-color: $even-darker-gray !important;
+		border: none !important;
+		border-color: transparent !important;
+		&:focus {
+			background-color: $light-gray !important;
+		}
+	}
+	.RadEditor, .reContentCell {
+		background-color: $black !important;
+		@include clearfix();
+	}
+	.reDropdown {
+		&:hover {
+			border: 0px !important;
+			span {
+				color: lighten($admin-color, 10%) !important;
+			}
+		}
+	}
+}
+.dropdownSelections {
+	@include hSpacer(2);
+	font-family: "Helvetica", "Arial", Sans;
+	font-size: emCalc(13px);
+	line-height: 1.5em;
+}
+.tasksLayout {
+	width: 100%;
+	select {
+		@include form-element();
+		background-color: $even-darker-gray;
+		border: none;
+		width: 100% !important;
+	}
+	a{
+		color: lighten($admin-color, 20%);
+		&:hover {
+			color: lighten($admin-color, 40%);
+		}
+	}
+	tr {
+		td{
+			vertical-align: middle !important;
+			&:first-child {
+				width:30% !important;
+				text-align: left !important;
+			}
+		}
+		&:last-child {
+			td {
+				vertical-align: top !important;
+			}
+		}
+
+	}
+	h1 {
+		color: $dark-gray;
+		margin-top: emCalc(10px);
+	}
+}
+.topView {
+	float: left;
+	margin-right: emCalc(30px);
+	a {
+		float: right;
+		padding-top: emCalc(10px);
+	}
+	input {
+		margin-right: emCalc(15px);
+		float: left;
+	} 	
+}
+.pageTasksBtn {
+	display: block;
+	float: left;
+	margin-right: emCalc(30px);
+	margin-bottom: emCalc(10px);
+	br {
+		display: none;
+	}
+	input {
+		margin-right: emCalc(15px);
+	}
+	a {
+		float: right;
+		padding-top: emCalc(10px);
+	}
+}
+.RadTabStrip {
+	padding: 01.5em !important;
+	font-family: "Helvetica", "Arial", Sans !important;
+	border-top: 1px solid $even-darker-gray;
+}
+.RadTabStrip_MetroTouch {
+	.rtsLI {
+		padding: 10px !important;
+		background-color: $admin-color !important;
+		border: none !important;
+		margin-right: 2px !important;
+	}
+	.rtsLink {
+		background-color: $admin-color !important;
+		border: none !important;
+	}
+	.rtsLevel1 {
+		border-color: $admin-color !important;
+		//border: none !important;
+	}
+}
+.topPanel {
+	& > div {
+		@include hSpacer(2);
+	}
+	a{
+		color: lighten($admin-color, 20%);
+		&:hover {
+			color: lighten($admin-color, 40%);
+		}
+	}
+}
+.monoXCatalogTabs, .ui-widget-header {
+	background: none;
+	border: none;
+}
+.ui-widget-header {
+	li, a {
+		background: #444!important;
+		border: none !important;
+	}
+}
+.ui-tabs-panel {
+	@include clearfix();
+	background: #444 !important;
+}
+.web-part-box {
+	background: $darkest-gray !important;
+	border: 1px dashed $even-darker-gray!important;
+	padding: emCalc(10px);
+	
+	line-height: 1em;
+	.inner-box {
+		background: none  !important;
+		border: none !important;
+		padding: 10px !important;
+		height: 55px !important;
+		img {
+			float: left;
+		}
+		input[type="checkbox"] {
+			right: 9px;
+			top: 9px;
+		}
+		label {
+			color: $gray !important;
+		}
+	}
+}
+.ui-state-default {
+	a{
+		color: $dark-gray !important;
+		&:hover {
+			color: lighten($admin-color, 40%) !important;
+		}
+	}
+}
+.ui-state-active {
+	a{
+		color: lighten($admin-color, 20%) !important;
+		&:hover {
+			color: lighten($admin-color, 40%) !important;
+		}
+	}
+}
+.property-holder {
+	table {
+		border: 0px !important;
+	}
+	select {
+		@include form-element();
+		width: 33%;
+		float: left;
+	}
+	input[type="button"] {
+		@extend .regular-button;
+		padding: 0.5em 1em;
+		margin: 0 0 0 emCalc(5px);
+		float: left;
+		border: 0px;
+	}
+}
+.admin-input-form {
+	color: $dark-gray !important;
+	label, span {
+		color: $dark-gray !important;
+	}
+	input[type="text"], textarea, select {
+		width: 100% !important;
+	}
+	input[type="checkbox"] {
+		margin-top: 0.4em;
+		margin-right: emCalc(10px);
+	}
+}
+.topPanel {
+	& > div {
+		&:last-child {
+
+		}
+	}
+}
+.property-fields-menu {
+	width: 100%;
+	overflow-x: scroll;
+	@media #{$small} {
+		overflow-x: visible;
+	}
+	& > table {
+		tr {
+			&:last-child {
+				td {
+					input[type="button"] {
+						float: none;
+						background-color: $admin-color !important;
+						&:hover {
+							background-color: darken($admin-color, 10%) !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.property-fields-catalogue {
+	input[type="submit"] {
+		@extend .regular-button;
+		padding: 0.5em 1em;
+		margin: 0 0 0 emCalc(5px);
+		float: left;
+		border: 0px;
+	}
+	input[type="file"] {
+		width: auto;
+		float: left;
+		height: 40px;
+	}
+	& > table {
+		& > tbody {
+			& > tr{
+				&:first-child {
+					font-size: emCalc(24px);
+					color: $dark-gray;
+				}
+				& > td {
+					& > table {
+						& > tbody {
+							& > tr {
+								&:first-child {
+									br {
+										display: none;
+									}
+									span, a {
+										display: block;
+										float: left;
+										padding-right: emCalc(20px);
+									}
+								}
+								&:nth-child(2) {
+									td {
+										table {
+											tr {
+												&:first-child {
+													span {
+														font-size: emCalc(24px);
+														color: $dark-gray;
+														display: block;
+														margin-top: 10px;
+													}
+												}
+											}
+										}
+									}
+								} 
+							}
+						}
+					}
+				}
+				&:last-child {
+					label {
+						font-size: emCalc(24px);
+						color: $dark-gray;
+						display: block;
+						margin-top: 10px;
+						margin-bottom: 0px;
+					}
+					input[type="button"] {
+						background-color: $admin-color !important;
+						&:hover {
+							background-color: darken($admin-color, 10%) !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}

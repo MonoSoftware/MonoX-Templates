@@ -1,0 +1,119 @@
+@include sticky-footer(71px, "#login-page", "#footer-spacer", "#sticky-footer");
+
+#login-page {
+	padding-top: 0;
+
+	@media #{$small} {
+		padding-top: baseCalc(2);
+	}
+}
+
+.login-title, .page-login, .social-login-holder {
+	@include grid-column(12);
+
+	@media only screen and (min-width:"#{$small-screen}") and (max-width:"#{$medium-screen}") {
+		@include grid-column(7, $center: true);
+	}
+
+	@media #{$medium} {
+		@include grid-column(5, $center: true);
+	}
+}
+
+.login-title {
+	padding: baseCalc(2);
+	background-color: $black;
+	text-align: center;
+}
+
+.login-headline {
+	background-color: $lite-gray;
+	padding: baseCalc(1) baseCalc(3) baseCalc(0.5) baseCalc(3);
+	margin: -1.5em -2.5em 2em -2.5em;
+}
+
+.page-login {
+	@extend .boxed-content;
+	@include vMargin(1, bottom);
+	line-height: 1.5;
+}
+
+.login-module {
+	padding: baseCalc(2);
+
+	.login-password, .login-user-name {
+		position: relative;
+	}
+
+	.validator {
+		//position: absolute;
+		//bottom: 10px;
+		top: 30px;
+		right: 10px;
+	}
+
+	.offset {
+		@include clearfix;
+
+		label {
+			float: left;
+			padding-left: baseCalc(1);
+		}
+		input {
+			float: left;
+		}
+	}
+
+	.regular-button {
+		width: 100%;
+
+		@media #{$small} {
+			width: auto;
+			margin-right: baseCalc(0.5);
+		}
+	}
+}
+
+.social-login-holder {
+	@extend .boxed-content;
+	padding-top: 0;
+}
+
+
+.social-headline {
+	background-color: $lite-gray;
+	padding: baseCalc(1) baseCalc(3) baseCalc(0.5) baseCalc(3);
+	margin: 0 -1em;
+}
+
+.social-buttons {
+	@extend %gridRowNest;
+	padding: baseCalc(3) baseCalc(0) baseCalc(0);
+}
+
+.social-button-holder {
+	@include grid-column(6);
+
+	.regular-button {
+		width: 100%;
+
+		img {
+			margin-top: -4px;
+			margin-right: 4px;
+		}
+	}
+}
+
+.italic-style {
+	padding: 0 baseCalc(2) baseCalc(1) baseCalc(2);
+	font-size: 0.9em;
+}
+
+#sticky-footer {
+	background: transparent;
+	padding-top: 0;
+
+	.copyright {
+		margin-top: 0;
+	}
+}
