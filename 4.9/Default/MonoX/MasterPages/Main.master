@@ -1,0 +1,37 @@
+<%@ Master
+    Language="C#"
+    AutoEventWireup="true"
+    Inherits="MonoSoftware.MonoX.MasterPages.Main"
+    EnableTheming="true"
+    Codebehind="Main.master.cs" %>
+
+<%@ Register Src="~/MonoX/MasterPages/AjaxErrorHandler.ascx" TagPrefix="monox" TagName="AjaxErrorHandler" %>
+
+<asp:literal runat="server" ID="ltlDoctype"></asp:literal>
+
+<html<asp:Literal runat="server" ID="ltlXmlns" /> <asp:Literal runat="server" ID="ltlRootHtml" />>
+<!--[if IE 8]> 	<html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head runat="server">
+    <title></title>
+    <link rel="apple-touch-icon" href="~/App_Themes/Default/img/apple-touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/App_Themes/Default/img/apple-touch-icon-ipad3.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/App_Themes/Default/img/apple-touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/App_Themes/Default/img/apple-touch-icon-iphone4.png">
+</head>
+<body>
+    <form id="form1" runat="server" style="height: 100%;">
+        <asp:ScriptManager ID="AjaxScriptManager" runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="~/App_Themes/Default/javascripts/custom.modernizr.js" />
+                <asp:ScriptReference Path="~/App_Themes/Default/javascripts/foundation.js" />
+                <asp:ScriptReference Path="~/App_Themes/Default/javascripts/foundation.orbit.js" />
+            </Scripts>
+        </asp:ScriptManager>
+        <monox:AjaxErrorHandler id="ajaxErrorHandler" runat="server"></monox:AjaxErrorHandler>
+        <asp:ContentPlaceHolder ID="cp" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

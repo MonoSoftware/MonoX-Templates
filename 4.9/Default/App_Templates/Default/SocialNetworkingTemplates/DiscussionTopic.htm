@@ -1,0 +1,101 @@
+﻿<div class="discussion-item <# PinItemClass #> <# PinItemBackgroundClass #> jq_snNote <# UnapprovedClass #> <# SpamClass #> <# UnansweredClass #> <# AnsweredClass #>">
+
+        
+        <div class="title-wrapper">
+            <div class="title-holder">
+                <h2><# Name #></h2>
+            </div>
+            <div class="info-box">
+                <div class="counter">
+                    #if( $RatingVisible )
+                        <strong>
+                            <# RatingCount #>
+                            <span title="<# RatingToolTip #>"><# RatingText #></span>
+                        </strong>
+                    #end
+                    #if( $NoRatingVisible )
+                        <strong>
+                            0
+                            <span title="<# RatingToolTip #>"><# RatingText #></span>
+                        </strong>
+                    #end
+                    <a href="<# ViewsUrl #>" title="<# ViewsToolTip #>">
+                        <# ViewsCount #>
+                        <span><# ViewsText #></span>
+                    </a>
+                    <a href="<# ReplyUrl #>" title="<# ReplyToolTip #>">
+                        <# ReplyCount #>
+                        <span><# ReplyText #></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="notification-holder">
+            
+            <div class="date-author">
+                
+                <# Date #> -
+                <a href="<# AuthorUrl #>" title="<# AuthorToolTip #>" class="author"><# AuthorText #></a>&nbsp;
+                
+            </div>
+            <div class="notifications">
+                #if( $AnsweringVisible )
+                    <span class="answer-label unpublished-label" title="<# AnswerToolTip #>">
+                        <# Answer #>
+                    </span>
+                #end
+                <span class="spam-label"> <# SpamLabel #></span>
+                <span class="unapproved-label"> <# UnapprovedLabel #></span>
+                
+            </div>
+        </div>
+        <div class="discussion-list-bottom-area">
+            #if( $LastPostVisible )
+            <div class="last">
+                <div class="last-holder">
+                    <a href="<# LastPostUrl #>" title="<# LastPostToolTip #>">
+                        <span><# LastPostText #></span>
+                        <# LastPostName #>
+                    </a>
+                    #if( $LastPostAuthorVisible )
+                    <a href="<# LastPostAuthorUrl #>" title="<# LastPostAuthorToolTip #>">
+                        <span><# LastPostAuthorText #></span>
+                        <# LastPostAuthorName #>
+                    </a>
+                    #end
+                    / <# LastPostDate #>
+                </div>
+            </div>
+            #end
+            #if( $TagsVisible )
+            <div class="tags">
+                <# Tags #>
+            </div>
+            #end
+        
+            #if( $EditVisible || $DeleteVisible || $ApproveOptionsVisible || $SpamOptionsVisible || $PinItemVisible || $TellAFriendVisible)
+            <div class="options">
+                #if( $EditVisible )
+                <a title="<# Edit-ToolTip #>" href='<# Edit-URL #>'>
+                    <# Edit-ToolTip #>
+                </a>
+                #end
+                #if( $DeleteVisible )
+                <a title="<# Delete-ToolTip #>" href='<# Delete-URL #>' <# Delete-Attributes #>>
+                    <# Delete-ToolTip #>
+                </a>
+                #end
+                #if( $ApproveOptionsVisible )
+                <# Approve #>
+                #end
+                #if( $SpamOptionsVisible )
+                <# ReportHam #>
+                <# ReportSpam #>
+                #end
+                #if( $PinItemVisible ) <# TogglePinItem #> #end
+                #if( $TellAFriendVisible ) <span class="share"><# TellAFriend #></span> #end
+            </div>
+            #end
+        </div>
+        
+</div>
