@@ -1,0 +1,17 @@
+﻿<div class="event-simple-content <# ItemCssClass #>">
+    <h2><# Title #></h2>
+    <div class="date"><# StartTime #> - <# EndTime #></div>
+    <p>
+        <strong><# PlaceLocalizedTitle #></strong>
+        <# Place #>
+    </p>
+    <p>
+        <strong><# DescriptionLocalizedTitle #></strong> <# Description #> 
+    </p>
+    #if( $Editable )
+    <div class="options">
+        <# UpdateAction #>
+        <# DeleteAction #>
+    </div>
+    #end
+</div>
