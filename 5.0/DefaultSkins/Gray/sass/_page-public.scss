@@ -1,0 +1,89 @@
+.side-menu {
+	list-style: none;
+	margin: 0 0 baseCalc(4) 0;
+
+	li{
+		list-style: none;
+		display: block;
+		border-bottom: 1px solid $dark-gray;
+		&:first-child{
+			padding-left: 0;
+			background: none;
+		}
+		&:last-child {
+			border: 0;
+		}
+				
+		a {
+			color: $anchor-font-color;
+			display: block;
+			padding: baseCalc(1) baseCalc(1) baseCalc(1) baseCalc(2);
+			background: url(../img/list-pointer.png) left center no-repeat transparent;
+			&:hover{
+				color: $anchor-font-color-hover;
+				background-position: 5px center;
+				padding-left: baseCalc(2);
+			}
+		}
+		&.active {
+			a {
+				color: $anchor-font-color-hover;
+				background-position: 2px center;
+				padding-left: baseCalc(2);
+				font-family: $bold-font-family;
+			}
+		}
+	}
+}
+.content-pages {
+	@include vMargin(2);
+	li {
+			list-style-type: none;
+		}
+	.side-content {
+		.side-menu, .info-box, .web-part-body {
+			@extend %boxed-content;
+		}
+		.info-box {
+			a {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.main-content {
+		.web-part-body {
+			@extend %boxed-content;
+		}
+	}
+}
+.contact-us {
+	@include grid-row($behavior: nest);
+	.contact-holder {
+		@include grid-column(12);
+		& > dl{
+			@extend %boxed-content;
+		}
+
+	}
+	.contact-info-holder {
+		@include grid-column(12);
+		.contact-info {
+			@extend %boxed-content;
+			@include vMargin(2, top);
+			ul{
+				li {
+					list-style-type: none;
+				}
+			}
+		}
+
+	}
+}
+.content-page {
+	@extend %boxed-content;
+	@include vMargin(2);
+	@include clearfix();
+	li {
+		list-style-type: none;
+	}
+}

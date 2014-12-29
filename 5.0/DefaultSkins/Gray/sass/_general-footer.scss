@@ -1,0 +1,91 @@
+footer{
+	background: $dark-gray;
+	padding-top: baseCalc(4);
+	.footer-holder{
+		@extend %gridRow;
+		.footer-box{
+			@include grid-column(12);
+			@media #{$small} 
+			{
+				@include grid-column(3);
+			}
+		}
+		ul {
+			li {
+				list-style: none;
+				font-family: $header-font-family;
+				display: block;
+				border-bottom: 1px solid $gray;
+
+				&:first-child {
+					padding-left: 0;
+					background: none;
+				}
+				h2 {
+					font-family: $body-font-family;
+					font-size: 1.5em;
+				}
+				a {
+					color: $footer-list-link-color;
+					display: block;
+					padding: baseCalc(1) baseCalc(1) baseCalc(1) baseCalc(2);
+					background: url(../img/list-pointer.png) left center no-repeat transparent;
+					&:hover{
+						color: $footer-list-link-hover-color;
+					}
+					span {
+						padding: 0;
+						background: none;
+					}
+				}
+				span {
+					padding: baseCalc(1) baseCalc(1) baseCalc(1) baseCalc(2);
+					display: block;
+					background: url(../img/list-pointer.png) left center no-repeat transparent;
+				}
+			}
+		}
+		.social-box{
+			li {
+				a {
+					display: block;
+					background-image: none;
+					padding: baseCalc(1) baseCalc(1) baseCalc(1) baseCalc(4);
+				}
+			}
+
+			span {
+				@include iconSize(22px);
+				margin-top: emCalc(11px);
+				float: left;
+				padding: 0;
+			}
+
+			.facebook {
+				@include interface-icons-sprite(icon-facebook);
+			}
+			.twitter{
+				@include interface-icons-sprite(icon-twitter);
+			}
+			.linkedin{
+				@include interface-icons-sprite(icon-linkedin);
+			}
+		}
+	}
+	.copyright {
+		@include clearfix;
+		background: $black;
+		color: $gray;
+		margin-top: baseCalc(4);
+		padding: baseCalc(3);
+		text-align: center;
+		.branding {
+			color: $white;
+			margin: 0 emCalc(5);
+		}
+		.copy {
+			line-height: 2;
+		}
+
+	}
+}

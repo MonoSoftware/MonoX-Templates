@@ -1,0 +1,88 @@
+form {
+	margin: 0;
+}
+select {
+	@include form-element();
+}
+dl {
+	margin-bottom: 0;
+}
+.white-background {
+	background: white;
+}
+
+.gray-background {
+	background: $lite-gray;
+}
+
+.gradient-background {
+	@include gradientBackground;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
+
+//Page content main division - START
+.content-wrapper {
+	@include grid-row;
+	@include vMargin(2);
+}
+
+
+//Default main content
+.main-content {
+	@include grid-column(12);
+}
+
+.side-content {
+	@include grid-column(12);
+	@media #{$small} {
+		@include grid-column(4);
+	}
+}
+.side-column {
+	@include grid-column(12);
+	@media #{$small} {
+		@include grid-column(4);
+	}
+}
+ 
+
+
+//Default column values
+
+//Two columns page
+.two-columns {
+	.main-content {
+		@include grid-column(12);
+		@media #{$small} {
+			@include grid-column(8);
+		}
+	}
+}
+
+//Three columns page
+.three-columns {
+	.main-content {
+		@include grid-column(12);
+		@media #{$small} {
+			@include grid-column(4);
+		}
+	}
+}
+//Page content main division - END
+
+
+.box {
+	@include grid-row($behavior: nest);
+}
+
+.box-content {
+	@include grid-column(12);
+}

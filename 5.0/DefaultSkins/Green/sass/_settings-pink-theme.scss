@@ -1,0 +1,95 @@
+//Branding Variables
+
+$logo-image: url(../img/logo.png);
+$logo-height: 17px;
+$logo-width: 130px;
+
+//Typography Variables
+
+$body-font-family: "Source Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$bold-font-family: "Source Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif-font-family: Georgia, Times, "Times New Roman", serif;
+
+$header-font-family: "Source Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$header-font-weight: 300;
+
+//Base Color Variables
+
+$light-gray: #f6f6f6;
+$lite-gray: #e7e7e7;
+$gray: #ccc;
+$dark-gray: #dbdbdb;
+$darker-gray: #bbb;
+$even-darker-gray: #777;
+$darkest-gray: #333;
+
+$white: #fff;
+$black: #000;
+
+$alpha-color: #ed145b;
+$beta-color: #940961;
+
+$gama-color: #77074d;
+$delta-color: #d31049;
+
+$orange: #fe8a44;
+
+//Custom Color Variables
+
+$body-bg: #f6f6f6;
+$navigation-background-color: $black;
+$navigation-link-color: $white;
+$navigation-border-color: $darkest-gray;
+$subnavigation-desktop-background-color: $black;
+$subnavigation-background-color: #252525;
+$subnavigation-background-hover-color: $black;
+$subnavigation-background-2ndlevel-color: #363636;
+$subnavigation-background-3rdlevel-color: #555;
+$subnavigation-border-color: $black;
+$subnavigation-triangle-color: $white;
+
+$text-over-background-color: $white;
+
+$gradient-color1: $beta-color;
+$gradient-color2: $alpha-color;
+
+$gradient-color3: $gama-color;
+$gradient-color4: $delta-color;
+
+$regular-box-background-color: $white;
+
+$regular-button-color: $delta-color;
+$regular-button-hover-color: $gama-color;
+$regular-button-border-color: darken($delta-color, 5%);
+$regular-button-text-color: $white;
+
+$secondary-button-color: $darker-gray;
+$secondary-button-hover-color: $even-darker-gray;
+$secondary-button-border-color: darken($darker-gray, 5%);
+$secondary-button-text-color: $white;
+
+$go-button-hover-color: $alpha-color;
+$filter-list-background-color: $black;
+$filter-list-text-color: $white;
+$filter-title-border-color: $darkest-gray;
+
+$membership-button-text-color: $dark-gray;
+$membership-button-hover-color: $black;
+
+$footer-list-link-color: $black;
+$footer-list-link-hover-color: $alpha-color;
+
+$anchor-font-color: $alpha-color;
+$anchor-font-color-hover: $beta-color;
+
+$webpart-color: $alpha-color;
+$admin-color: $alpha-color;
+
+//Primary Color Variables
+
+$primary-color: $alpha-color;
+
+//Custom Rounding Variables
+
+$global-radius: 0px;
+$avatar-radius: 75%;

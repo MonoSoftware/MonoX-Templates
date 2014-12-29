@@ -1,0 +1,41 @@
+
+%gridRow {
+	@include grid-row($behavior: false);
+}
+
+%gridRowCollapsed {
+	@include grid-row($behavior: collapse);
+}
+
+%gridRowNest {
+	@include grid-row($behavior: nest);
+}
+
+%gridRowNestCollapse {
+	@include grid-row($behavior: nest-collapse);
+}
+
+%globalBoxPadding {
+	padding: baseCalc(3);
+}
+
+%positionLeft {
+	float: left;
+}
+
+%positionRight {
+	float: right;
+}
+
+%transparentButton {
+	@include border-radius($global-radius);
+	padding: baseCalc(1);
+
+	span {
+		margin: 0 auto;
+	}
+	&:hover {
+		background-color: $membership-button-hover-color;
+		transition: background-color 0.3s;
+	}
+}

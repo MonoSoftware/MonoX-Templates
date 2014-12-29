@@ -1,0 +1,215 @@
+.friend-list-wrapper {
+	@extend %gridRow;
+	//margin-bottom: - emCalc(18px);
+	padding:  emCalc(15px);
+	overflow: hidden;
+	.my-friend {
+		@include grid-column(3, $collapse: true);
+		margin-bottom: emCalc(1px);
+		padding: emCalc(2px);
+
+		img {
+			width: 100% !important;
+			height: auto !important;
+			border: 1px solid $dark-gray !important;
+		}
+	}
+	.my-friend-w-controls {
+		@include grid-column(12, $collapse: true);
+		border-bottom: 1px dotted $gray;
+		@include vSpacer(2, bottom);
+
+
+		@media #{$small} {
+			@include grid-column(12, $collapse: true); //6
+			height: auto;
+		}
+
+		.avatar {
+			img {
+				height: auto !important;
+				border: 1px solid $dark-gray !important;
+				@include border-radius($avatar-radius);
+			}
+		}
+		
+
+		.options {
+			float: right;
+			margin-top: emCalc(10px);
+			text-align: center;
+			@media #{$small} {
+				text-align: right;
+				padding-right:  emCalc(18px);
+			}
+
+			.iconView, .iconTrash {
+				@include iconSize(28px);
+				@extend .regular-button;
+				@extend .regular-button.secondary;
+				margin-bottom: 0;
+			}
+
+			.iconView {
+				background: $secondary-button-color url(../img/icon-profile.png) no-repeat center center;
+				padding: baseCalc(0.8);
+			}
+
+			.iconTrash {
+				background: $secondary-button-color url(../img/icon-trash.png) no-repeat center center;
+				padding: baseCalc(0.8);
+			}
+		}
+	}
+
+	& div:last-child {
+		.border-spacing { 
+			border: none; 
+		}
+	}
+}
+.my-friend-list {
+	.friend-list-wrapper {
+		.user-name {
+			text-align: center;
+			margin-top: baseCalc(1.1);
+			font-family: $header-font-family;
+			@include adjust-font-size-to(24px);
+			@media #{$small} {
+				@include grid-column(8, $collapse: true);
+				text-align: left;
+			}
+		}
+		.avatar {
+			@include grid-column(12);
+			text-align: center;
+			@media #{$small} {
+				@include grid-column(2); //4
+				text-align: left;
+			}
+		}
+		.user-name {
+			@include grid-column(12);
+			@media #{$small} {
+				width: auto;
+			}
+		}
+		.options {
+			margin-top: 1.8em;
+			float: none;
+		}
+	}
+}
+
+.people-search {
+	.search-textbox {
+		position: relative;
+		.RadComboBox {
+			.rcbInput {
+				margin-bottom: 1em;
+			}
+		}
+	}
+}
+
+.side-content {
+	.my-friend-w-controls, .friend-list {
+		@include vSpacer(1);
+		margin: 0;
+		border-bottom: 1px dotted $gray;
+		img {
+			@include border-radius($avatar-radius);
+		}
+	}
+	.friend-list {
+		.avatar {
+			margin-right: emCalc(15px);
+		}
+	}
+}
+.friend-suggestion-wrapper {
+	@include vMargin(1);
+	@include vSpacer(1);
+	border-bottom: 1px dotted $gray;
+	.friend-suggestion {
+		@include clearfix();
+	}
+	.avatar {
+		float: left;
+		margin-right: emCalc(10px);
+		img{
+			@include border-radius(999px);
+		}
+	}
+	.user-name {
+		@include vMargin(1, bottom);
+	}
+}
+.people-suggest {
+	.web-part-body {
+		padding: 0;
+		background: transparent;
+		border: none;
+	}
+	.friend-list-wrapper {
+		margin: 0 - emCalc(7px);
+		padding: 0;
+	}
+	.friend-suggestion-wrapper {
+		@include grid-column(12, $collapse: true);
+		@media #{$small} {
+			@include grid-column(4, $collapse: true);
+			padding: emCalc(7px) emCalc(7px);
+		}
+		padding: emCalc(7px) emCalc(15px);
+		border: none;
+		margin: 0px !important;
+		.friend-suggestion {
+			background: $white;
+			border: 1px solid $gray;
+			padding: emCalc(15px) emCalc(7px);
+			min-height: emCalc(85px);
+			overflow: hidden;
+
+			a.avatar {
+				@include grid-column(3);
+				padding-right: 0;
+				margin-right: 0;
+				img {
+					width: 100% !important;
+					height: auto !important;
+					border: 1px solid $dark-gray !important;
+					@include border-radius($avatar-radius);
+				}
+			}
+			.user-name {
+				@include vMargin(1, bottom)
+			}
+			.name-and-button {
+				@include grid-column(9);
+				padding-left: 8%;
+				margin-top: baseCalc(0.5);
+
+				.connect a {
+					@extend .regular-button;
+					@extend .regular-button.secondary;
+					@extend .regular-button.small;
+					margin: emCalc(5px) 0;
+				}
+			}
+		}
+		
+	}
+}
+.friend-message {
+	@extend %boxed-content;
+	span{
+		@include vMargin(1, bottom);
+		display: block;
+	}
+	.button-holder {
+		a {
+			margin-bottom: 0;
+		}
+	}
+}

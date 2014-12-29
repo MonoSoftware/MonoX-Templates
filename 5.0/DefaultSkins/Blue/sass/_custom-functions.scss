@@ -1,0 +1,83 @@
+// Baseline height multiplier (for margins etc.)
+@function baseCalc($baseMultiplier) {
+	@return emCalc($baseMultiplier * $baseUnit);
+}
+
+// Custom any-direction border mixin
+@mixin border1($paddingNumber:1, $marginNumber:1, $direction:left, $borderColor:$dark-gray) {
+	padding-#{$direction}: baseCalc($paddingNumber);
+	border-#{$direction}: 1px solid $borderColor;
+	margin-#{$direction}: baseCalc($marginNumber);
+}
+
+// Horizontal spacer mixin with direction and spacing count
+@mixin vMargin($space:1, $direction:both) { 
+	@if $direction == 'both' {
+		margin-top: emCalc($baseUnit*$space);
+		margin-bottom: emCalc($baseUnit*$space);
+	}
+	@elseif $direction == 'top' {
+		margin-top: emCalc($baseUnit*$space);
+	}
+	@elseif $direction == 'bottom' {
+		margin-bottom: emCalc($baseUnit*$space);
+	}
+}
+
+// Horizontal spacer mixin with direction and spacing count
+@mixin hMargin($space:1, $direction:both) { 
+	@if $direction == 'both' {
+		margin-left: emCalc($baseUnit*$space);
+		margin-right: emCalc($baseUnit*$space);
+	}
+	@elseif $direction == 'left' {
+		margin-left: emCalc($baseUnit*$space);
+	}
+	@elseif $direction == 'right' {
+		margin-right: emCalc($baseUnit*$space);
+	}
+}
+
+// Horizontal spacer mixin with direction and spacing count
+@mixin hSpacer($space:1, $direction:both) { 
+	@if $direction == 'both' {
+		padding-left: emCalc($baseUnit*$space);
+		padding-right: emCalc($baseUnit*$space);
+	}
+	@elseif $direction == 'left' {
+		padding-left: emCalc($baseUnit*$space);
+	}
+	@elseif $direction == 'right' {
+		padding-right: emCalc($baseUnit*$space);
+	}
+}
+
+// Vertical spacer mixin with direction and spacing count
+@mixin vSpacer($space:1, $direction:both) { 
+	@if $direction == 'both' {
+		padding-top: emCalc($baseUnit*$space);
+		padding-bottom: emCalc($baseUnit*$space);
+	}
+	@elseif $direction == 'top' {
+		padding-top: emCalc($baseUnit*$space);
+	}
+	@elseif $direction == 'bottom' {
+		padding-bottom: emCalc($baseUnit*$space);
+	}
+}
+
+//Add gradient background to elements
+@mixin gradientBackground($color1:$gradient-color1, $color2:$gradient-color2) {
+	background-image: -ms-linear-gradient(left bottom, $color1, $color2);
+	@include background-image(linear-gradient(left bottom, $color1, $color2)); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#{$color2}', endColorstr = '#{$color1 }');
+	zoom:1;
+}
+
+//Icon setup
+@mixin iconSize($icon-size) {
+	display: inline-block;
+	height: $icon-size;
+	width: $icon-size;
+	overflow: hidden;
+}

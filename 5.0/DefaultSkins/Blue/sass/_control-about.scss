@@ -1,0 +1,74 @@
+.bottom-section {
+	@include grid-row();
+	.option-holder {
+		@include grid-column(12, $collapse: true);
+		strong {
+			@extend %boxed-content;
+			@include vMargin(2);
+			width: 100%;
+			display: block;
+		}
+		ul {
+			@include grid-row(); 
+			li {
+				list-style-type: none;
+				@include grid-column(6, $collapse: true); 
+				padding: 0 emCalc(3px);
+				&:first-child {
+					padding-left: 0;
+				}
+				&:last-child {
+					padding-right: 0;
+				}
+				a{
+					@extend .regular-button;
+					width: 100%;
+				}
+			}
+		}
+	}
+	.preview-profile {
+		@extend %boxed-content;
+		@include vMargin(1);
+		float: left;
+		width: 100%;
+		dd{
+			border-bottom: 1px dotted $gray;
+			@include vSpacer(1);
+			margin: 0;
+			&:first-child {
+				//border-top: 1px dotted $gray;
+			}
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+		.profile-websites {
+			a{
+				margin-right: emCalc(10px);
+				display: block;
+			}
+		}
+		.about-me {
+			@include vSpacer(1);
+		}
+	}
+	.edit-profile {
+		@extend %boxed-content;
+		@include vMargin(1);
+		float: left;
+		width: 100%;
+		dd{
+			@include grid-row();
+		}
+		.privacy {
+			@include grid-column(1, $push:11, $collapse: true);
+		}
+		.control-holder {
+			@include grid-column(11, $pull:1, $collapse: true);
+			select {
+				@include form-element();
+			}
+		}
+	}
+}

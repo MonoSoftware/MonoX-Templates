@@ -1,0 +1,80 @@
+
+
+@font-face {
+    font-family: 'Source Bold';
+    src: url('../Fonts/SourceSansPro-Bold.eot');
+    src: url('../Fonts/SourceSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/SourceSansPro-Bold.woff') format('woff'),
+         url('../Fonts/SourceSansPro-Bold.ttf') format('truetype'),
+         url('../Fonts/SourceSansPro-Bold.svg#SourceSansProBold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Source Light';
+    src: url('../Fonts/SourceSansPro-Light.eot');
+    src: url('../Fonts/SourceSansPro-Light.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/SourceSansPro-Light.woff') format('woff'),
+         url('../Fonts/SourceSansPro-Light.ttf') format('truetype'),
+         url('../Fonts/SourceSansPro-Light.svg#SourceSansProLight') format('svg');
+         
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Source Regular';
+    src: url('../Fonts/SourceSansPro-Regular.eot');
+    src: url('../Fonts/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/SourceSansPro-Regular.woff') format('woff'),
+         url('../Fonts/SourceSansPro-Regular.ttf') format('truetype'),
+         url('../Fonts/SourceSansPro-Regular.svg#SourceSansProRegular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'icomoon';
+    src:url('../Fonts/icomoon.eot');
+    src:url('../Fonts/icomoon.svg#icomoon') format('svg'),
+        url('../Fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('../Fonts/icomoon.ttf') format('truetype'),
+        url('../Fonts/icomoon.woff') format('woff');
+    
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+%iconBuilder {
+    font-family: "icomoon";
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@each $entypo in (
+    down-ic "\e603",
+    attach "\e601",
+    mono "\e600",
+    left "\e604",
+    right "\e605",
+    upload "\e9c8"
+
+
+) {
+    .icon-#{nth($entypo, 1)} {
+        &:before {
+            @extend %iconBuilder;
+            content: "#{nth($entypo, 2)}";
+        }
+    }
+}   
+

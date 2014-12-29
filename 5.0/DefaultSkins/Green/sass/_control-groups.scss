@@ -1,0 +1,203 @@
+.group{
+	@include vMargin(2);
+}
+.group-two-quarters {
+	@include grid-column(12);
+	@media #{$small} {
+		@include grid-column(8);
+	}
+}
+.group-full-width {
+	@include grid-column(12);
+}
+.groups{
+	.main-options {
+		@include grid-row();
+		a.blog-button{
+			@extend .regular-button;
+			@extend .secondary;
+			margin: 0;
+			width: 100%;
+		}
+		a.add-new-post{
+			@extend .regular-button;
+			margin-bottom: 0;
+			width: 100%;
+		}
+		.button-wrapper{
+			@include grid-column(12, $collapse: true);
+			margin-top: 2px;
+			@media #{$small} {
+				@include grid-column(3, $collapse: true);
+				@include hSpacer(.3);
+				margin-top: 0px;
+				&:first-child{
+					padding-left: 0;
+				}
+				&:last-child{
+					padding-right: 0;
+				}
+			}
+		}
+	}
+	.discussion {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+.group-item {
+	@include grid-row();
+	@include vMargin(2);
+	@media #{$small} {
+		@include grid-row($behavior: nest);
+		@include vMargin(2);
+	}
+	
+	.group-image {
+		@include grid-column(12, $collapse: true);
+		@media #{$small} {
+			@include grid-column(3, $collapse: false);
+			img{
+				display: block;
+				height: auto !important;
+				border: 1px solid $dark-gray !important;
+				min-width: 100%;
+				&:hover {
+					border-color: $gray !important;
+					transition: border 0.3s;
+				}
+			}
+		}
+		.counter{
+			@include vSpacer(1);
+			background-color: $gray;
+			text-align: center;
+		}
+
+	}
+	.content {
+		@include grid-column(12);
+		overflow: hidden;
+		@extend %boxed-content;
+		.options{
+			a{
+				@extend .regular-button;
+				@extend .secondary;
+				font-size: emCalc(14px);
+				padding: emCalc(5px);
+				margin-right: emCalc(2px);
+				margin-bottom: emCalc(4px);
+				@media #{$small} {
+					padding: emCalc(5px) emCalc(10px);
+					margin-bottom: 0;
+				}
+			}
+		}
+		@media #{$small} {
+			@include grid-column(9);
+		}
+	}
+}
+.people-search {
+	i {
+		font-family: $serif-font-family;
+		@include adjust-font-size-to(14px);
+		color: $darker-gray !important;
+		@include vSpacer(1, bottom);
+		display: block;
+	}
+	.regular-button {
+		margin-bottom: 0;
+	}
+}
+.group-info {
+	.group-image{
+		@include vSpacer(1, bottom);
+		img {
+			width: 100%;
+		}
+	}
+	.button-holder {
+		a{
+			@extend .regular-button;
+			margin-bottom: 0;
+		}
+	}
+	dl {
+		margin-bottom: 0;
+	}
+}
+.my-friend-w-controls {
+	@include vMargin(1);
+	.avatar {
+		margin-right: emCalc(15px);
+	}
+}
+.group-form {
+	dl {
+		& > dd {
+			@extend %boxed-content;
+			label {
+				font-family: $header-font-family;
+				@include adjust-font-size-to(24px);
+			}
+			i {
+				label{
+					font-family: $body-font-family;
+					@include adjust-font-size-to(16px);
+				}
+			}
+		}
+		.chk-box {
+			@include clearfix();
+			label{
+				font-family: $body-font-family;
+				@include adjust-font-size-to(16px);
+			}
+			span {
+				float: left;
+				margin-right: emCalc(15px);
+				input {
+					margin-bottom: 0;
+				}
+			}
+		}
+		.group-image {
+			img {
+				@include vMargin(1);
+			}
+			.rad-upload-container {
+				border: 0px !important;
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+		}
+		.legend {
+			font-family: $serif-font-family;
+			color: $even-darker-gray;
+			@include adjust-font-size-to(15px);
+		}
+	}
+	.user-picker {
+		dd{
+			border: none;
+			padding: 0;
+		}
+	}
+}
+.group-button-holder{
+	@extend %boxed-content;
+	a {
+		margin-top: emCalc(10);
+		margin-bottom: emCalc(10);
+	}
+}
+.group-photo-holder {
+	@include grid-row($behavior: nest);
+}
+.validation-wrapper {
+	padding: 0 !important;
+	background-color: transparent !important;
+	border: 0px !important;
+	margin: emCalc(10) 0;
+}

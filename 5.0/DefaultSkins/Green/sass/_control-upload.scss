@@ -1,0 +1,165 @@
+.uploadbox {
+	@extend .regular-button;
+	// @include padding-trailer(1);
+	// @include padding-leader(1);
+	@include margin-trailer(0);
+	width: 100%;
+	text-align: center;
+	.upl-title {
+		color: $white;
+		@include adjust-font-size-to(24px);
+	}
+	.upl-text {
+		color: $white;
+		@include adjust-font-size-to(18px);
+		font-family: $body-font-family;
+		display: block;
+	}
+}
+
+#fileupload {
+}
+.progress-animated {
+	.progress-bar, .bar {
+		background: url("../img/progressbar.gif") !important;
+		filter: none;
+	}
+}
+.fileupload-progressbar {
+	height: 8px;
+}
+.ui-progressbar-value {
+	height: 8px;
+	background: $primary-color !important;
+}
+.fileupload-process {
+	float: right;
+	display: none;
+}
+.fileupload-processing .fileupload-process,
+.files .processing .preview {
+	display: block;
+	width: 32px;
+	height: 32px;
+	background: url("../img/loading.gif") center no-repeat;
+	background-size: contain;
+}
+.fileinput-button {
+	margin-bottom: 0;
+}
+.fileinput-button input {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	@include opacity(0);
+}
+.wall-upload-button {
+	overflow: hidden;
+	position: relative;
+}
+.fileupload-buttonbar {
+
+	.ui-widget-content {
+		padding: 0;
+	}
+	.ui-corner-all,
+	.ui-corner-top,
+	.ui-corner-left,
+	.ui-corner-tl {
+		border-top-left-radius: 0px;
+	}
+	.ui-corner-all,
+	.ui-corner-top,
+	.ui-corner-right,
+	.ui-corner-tr {
+		border-top-right-radius: 0px;
+	}
+	.ui-corner-all,
+	.ui-corner-bottom,
+	.ui-corner-left,
+	.ui-corner-bl {
+		border-bottom-left-radius: 0px;
+	}
+	.ui-corner-all,
+	.ui-corner-bottom,
+	.ui-corner-right,
+	.ui-corner-br {
+		border-bottom-right-radius: 0px;
+	}
+
+	.ui-state-default,
+	.ui-widget-content .ui-state-default,
+	.ui-widget-header .ui-state-default {
+		border: 0;;
+		background: none;
+		font-weight: bold;
+		color: #2e6e9e;
+		font-family: $body-font-family;
+	}
+	.ui-state-default a,
+	.ui-state-default a:link,
+	.ui-state-default a:visited {
+		color: #2e6e9e;
+		text-decoration: none;
+	}
+	.ui-state-hover,
+	.ui-widget-content .ui-state-hover,
+	.ui-widget-header .ui-state-hover,
+	.ui-state-focus,
+	.ui-widget-content .ui-state-focus,
+	.ui-widget-header .ui-state-focus {
+		border: 0;;
+		background: none;
+		font-weight: bold;
+		color: #2e6e9e;
+	}
+	.ui-state-hover a,
+	.ui-state-hover a:hover,
+	.ui-state-hover a:link,
+	.ui-state-hover a:visited {
+		color: #1d5987;
+		text-decoration: none;
+	}
+	.ui-state-active,
+	.ui-widget-content .ui-state-active,
+	.ui-widget-header .ui-state-active {
+		border: 0;;
+		background: none;
+		font-weight: bold;
+		color: #2e6e9e;
+	}
+	.ui-state-active a,
+	.ui-state-active a:link,
+	.ui-state-active a:visited {
+		color: #e17009;
+		text-decoration: none;
+	}
+	.ui-state-active,
+	.ui-state-hover
+	{
+		background: transparent;
+	    border: 0;
+	    line-height: 1;
+	    color: #B94A48;
+		text-align: center;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		text-align: center;
+		padding: 0px;
+		-moz-border-radius: 0px;
+		-webkit-border-radius: 0px;
+		border-radius: 0px;
+		opacity:1.0;
+	}
+	.ui-state-hover
+	{
+		border: 0;
+		background: transparent;
+		color: #222;
+		opacity:1.0;
+	}
+	.ui-icon {
+		display: none;
+	}
+}

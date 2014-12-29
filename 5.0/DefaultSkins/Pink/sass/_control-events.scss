@@ -1,0 +1,128 @@
+.events {
+	@include vMargin(2);
+}
+.new-button-wrapper {
+	@include grid-column(12);
+	a {
+		width: 100%;
+	}
+	@media #{$small} {
+		@include grid-column(12, $collapse: true);
+		a {
+			width: auto;
+		}
+	}
+}
+.event-simple-view-options {
+	@include grid-row();
+	.date-wrapper {
+		@include grid-column(12);
+		margin-bottom: emCalc(15px);
+		@media #{$small} {
+			@include grid-column(4, $collapse: true);
+		}
+	}
+	.button-wrapper {
+		@include grid-column(12);
+		a {
+			width: 100%;
+		}
+		@media #{$small} {
+			@include grid-column(2, $collapse: true);
+		}
+	}
+	& > div {
+		padding: 0;
+		@media #{$small} {
+			padding: 0 emCalc(3px) !important;
+			&:first-child {
+				padding-left: 0 !important;
+			}
+			&:last-child {
+				padding-right: 0 !important;
+			}
+		}
+	}
+}
+.event-simple-content {
+	@extend %boxed-content;
+	overflow: hidden;
+	@include vMargin(2);
+	@include clearfix();
+	.date {
+		@include adjust-font-size-to(14px);
+	}
+	.options {
+		@include vMargin(1);
+		a{
+			@extend .regular-button;
+			@extend .secondary;
+			font-size: emCalc(14px);
+			padding: emCalc(5px);
+			margin-right: emCalc(2px);
+			margin-bottom: emCalc(4px);
+			float: right;
+			@media #{$small} {
+				padding: emCalc(5px) emCalc(10px);
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+.event-module-form {
+	dd{
+		@extend %boxed-content;
+		@include clearfix();
+		label {
+			font-size: emCalc(24px);
+			font-family: $header-font-family;
+		}
+		textarea {
+			height: auto;
+		}
+	}
+	.chk-holder {
+		@include clearfix();
+		float: none !important;
+		label {
+			font-size: emCalc(16px);
+			font-family: $body-font-family;
+		}
+	}
+	.date-holder {
+		& > div {
+			@include grid-column(12, $collapse:true);
+			@include vMargin(1, bottom);
+			@media #{$small} {
+				@include grid-column(6, $collapse:true);
+			}
+		}
+		input[type="checkbox"] {
+			float: left;
+			margin-right: emCalc(10px); 
+			margin-top: emCalc(5px);
+		}
+		.RadPicker {
+			margin-bottom: 1em !important;
+		}
+	}
+}
+
+.event-advanced-view {
+	.calendar {
+		@include grid-column(12); 
+		@include vSpacer(2, bottom);
+		@media #{$small} {
+			@include grid-column(3, $collapse: true); 
+		}
+		.create-new {
+			@extend .regular-button;
+		}
+	}
+	.scheduler {
+		@include grid-column(12);
+		@media #{$small} {
+			@include grid-column(9, $collapse: true); 
+		}
+	}
+}

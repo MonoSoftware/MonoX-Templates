@@ -1,0 +1,96 @@
+.news{
+	overflow: hidden;
+	@extend %boxed-content;
+	line-height: 1.4em;
+	@include vMargin(2);
+	.title-wrapper {
+		@include grid-row($behavior: nest);
+		.title-holder {
+			@include grid-column(12);
+			h2 {
+				margin-bottom: 0;
+			}
+			@media #{$small} {
+				@include grid-column(8);
+				h2 {
+					margin-bottom: emCalc(10px);
+				}
+			}
+		}
+		.counter {
+			@include grid-column(12);
+			div{
+				display: inline-block;
+				@include vSpacer(2);
+				margin-right: emCalc(10px);
+				float: left;
+			}
+			@media #{$small} {
+				@include grid-column(4);
+				div{
+					margin-left: emCalc(10px);
+					margin-right: 0;
+					float: right;
+				}
+			}
+			
+		}
+	}
+	ul {
+		li {
+			margin-left: emCalc(25px);
+		}
+	}
+	.options {
+		@include vSpacer(1, bottom);
+		@include vSpacer(2, top);
+		border-top: 1px dotted $gray;
+		a{
+			@extend .regular-button;
+			@extend .secondary;
+			font-size: emCalc(14px);
+			padding: emCalc(5px);
+			margin-right: emCalc(2px);
+			margin-bottom: emCalc(4px);
+			@media #{$small} {
+				padding: emCalc(5px) emCalc(10px);
+				margin-bottom: 0;
+			}
+		}
+		.share {
+			float: right;
+			a{
+				padding: 0;
+				background-color: transparent;
+				border: none;
+			}
+		}
+	}
+}
+.news-info{
+	@include adjust-font-size-to(14px);
+	@include vSpacer(1);
+	border-bottom: 1px dotted $gray;
+	border-top: 1px dotted $gray;
+}
+.read-more {
+	@include vSpacer(1);
+	@include vMargin(1, top);
+	a{
+		@extend .regular-button;
+	}
+}
+.single-news {
+	.read-more {
+		@include vMargin(0);
+		a {
+			display: none
+		}
+	}
+}
+.NewsModule {
+	.related-topics {
+		@extend %boxed-content;
+		@include vMargin(2, bottom);
+	}
+}

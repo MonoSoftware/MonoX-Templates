@@ -1,0 +1,18 @@
+.photo-gallery-preview {
+	@extend %gridRowNest;
+	padding: emCalc(15px);
+	@extend %boxed-content;
+	.photo-simple {
+		margin-bottom: emCalc(1px);
+		padding: emCalc(1px);
+		height: 80px;
+		float: left;
+		.gallery-photo-thumb {
+			img {
+				height: 100% !important;
+				width: auto !important;
+			}
+		}
+		
+	}
+}

@@ -1,0 +1,288 @@
+//.page-profile-background{
+//	@include gradientBackground;
+//}
+
+#page-profile-header {
+	margin: 0 auto !important;
+	color: $text-over-background-color;
+
+	h2 {
+		color: $text-over-background-color;
+		margin-bottom: 0.25em;
+		display: inline-block;
+	}
+
+	.user-avatar  {
+		margin: baseCalc(2) 0;
+		img {
+			width: 100% !important;
+		}
+	}
+}
+
+
+//Avatar
+.avatar-wrapper {
+	@include grid-column(12);
+
+	@media #{$small} {
+		@include grid-column(2);
+	}	
+}
+
+.upload-container {
+	.RadUpload {
+		.ruFakeInput, .ruFileWrap {
+			height: 36px !important;
+		}
+		.ruFakeInput {
+			@include form-element();
+			width: 110px !important;
+			margin-right: 10px;
+		}
+		.ruButton {
+			@extend .regular-button;
+			background: $black;
+			height: 36px !important;
+			border-color: $black;
+		}
+	}
+}
+.avatar-upload-container {
+	padding: emCalc(15px);
+}
+.upload-crop-button {
+	display: inline-block;
+	margin-top: emCalc(10px);
+	a {
+		margin-bottom: 0;
+	}
+}
+
+.user-avatar {
+	display: none;
+
+	@media #{$small} {
+		display: block;
+	}
+
+	img {
+		width: auto !important;
+		height: auto !important;
+		@include border-radius($avatar-radius);
+		//margin-top: baseCalc(1);
+	}
+
+	.regular-button {
+		display:none;
+		margin-top: - emCalc(25px);
+		margin-left: - emCalc(50px);
+		max-width: emCalc(100px);
+		position: absolute;
+		left: 50%;
+		top: 50%;
+	}
+
+	&:hover .regular-button {
+		display: block;
+	}
+}
+
+
+//User status
+.status-wrapper {
+	@include grid-column(12);
+
+	@media #{$small} {
+		@include grid-column(10);
+	}
+}
+
+.user-score {
+	display: inline-block;
+	margin-left: 1em;
+
+	.star {
+		@include iconSize(16px);
+		background: url(../img/star.png) no-repeat center center;
+		
+		@media #{$small} {
+			margin-right: 0.5em;
+			margin-bottom: emCalc(3px);
+		}
+	}
+}
+
+.status-text {
+	font-size: 1.5em;
+	font-style: italic;
+	font-family: $serif-font-family;
+	margin-bottom: 1em;
+	margin-top: 0;
+}
+
+.status-wrapper {
+	margin-top: baseCalc(1);
+}
+
+.profile-status-change {
+	@extend %gridRowNestCollapse;
+
+	.status-input {
+		@include grid-column(10, $collapse: true);
+		position: relative;
+		input {
+			font-size: 1.1em;
+			height: baseCalc(3.2);
+			padding-right: baseCalc(2.2);
+		}
+	}
+	.privacy {
+		@include grid-column(2, $collapse: true);
+		div {
+			margin: 0 0 0 8%;
+			background-color: $light-gray;
+			width: 92%;
+			text-align: center;
+			height: 2.7em;
+			@include border-radius($global-radius);
+			border: 1px solid $darker-gray;
+		}
+	}
+	.set-status {
+		@include grid-column(12, $collapse: true);
+		.regular-button {
+			width: 100%;
+			background-color: $black;
+			border-color: $black;
+		}
+	}
+	.remove-status {
+		position: absolute;
+		z-index: 99;
+		top: 30%;
+		right: 2%;
+		a {
+			display: block;
+			background: url(../img/clear.png) center center no-repeat transparent;
+			width: emCalc(10);
+			height: emCalc(10);
+		}
+	}
+
+	@media #{$small} {
+		.status-input {
+			@include grid-column(9, $collapse: true);
+		}
+		.privacy {
+			@include grid-column(1, $collapse: true);
+			div {
+				margin: 0 6%;
+				width: 88%;
+			}
+		}
+		.set-status {
+			@include grid-column(2, $collapse: true);
+
+			.regular-button {
+
+			}
+		}
+	}
+}
+
+
+//Privacy box reveal
+.privacy-box {
+	overflow: hidden;
+	border: solid 1px $even-darker-gray;
+	@include box-shadow(rgba(0,0,0,0.1) 5px 5px 0px);
+
+	label, input {
+		float: left;
+		margin-right: emCalc(5px);
+		line-height: 1;
+	}
+
+	.privacy-header {
+		background: $even-darker-gray;
+		color: #fff;
+		text-align: center;
+		padding: emCalc(5px) emCalc(10px);
+		@include adjust-font-size-to(18px, 1.5);
+	}
+
+	.privacy-main {	
+		background-color: #fff;
+		@include adjust-font-size-to(14px, 1);
+		padding: 10px 10px 0 10px;
+	}
+
+	.privacy-main TABLE TR TD {
+		padding: 3px 0;
+	}
+}
+
+
+//Profile tabs
+#user-profile-tabs {
+	margin-bottom: 1em;
+	border-bottom: 1px solid $dark-gray;
+	margin-bottom: baseCalc(2);
+	@include clearfix;
+}
+
+.user-profile-tabs {
+	@include grid-column(12);
+	list-style-type: none;
+	margin-bottom: baseCalc(2);
+	margin-top: baseCalc(2);
+
+	li {
+		float: left;
+		a {
+			padding: 0 1em;
+
+			@media #{$small} {
+				padding: 0 2em;
+			}
+		}
+		&:first-child a {
+			padding-left: 0;
+		}
+		&:last-child a {
+			padding-right: 0;
+		}
+		&.selected {
+			a {
+				color: $black;
+			}
+		}
+	}
+}
+
+
+#admin-choose-a-user {
+	padding: 0;
+
+	.choose-a-user {
+		margin: - baseCalc(1) 0 baseCalc(3) 0;
+		span {
+			display: block;
+			margin-bottom: emCalc(10px);
+		}
+	}
+}
+
+.edit-profile-button {
+	float: left;
+	width: 100%;
+	@extend %boxed-content;
+	a {
+		margin-bottom: 0;
+	}	
+	margin-top: emCalc(15);
+}
+.error-success-color {
+	float: left;
+}

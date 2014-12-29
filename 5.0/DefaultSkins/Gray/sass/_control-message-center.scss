@@ -1,0 +1,338 @@
+.messages {
+	@include vMargin(2);
+}
+.sort-filter {
+	@include grid-row($behavior: nest);
+	@include vMargin(2);
+	.filtering {
+		@include grid-column(12);
+		@include vMargin(2, bottom);
+		.filtering-holder {
+			input[type="text"]{
+				width: 80%;
+				float: left;
+				margin-bottom: 0px;
+			}
+			.clear{
+				position: absolute;
+				top: emCalc(16px);
+				bottom: 0;
+				right: 24%;
+				display: block;
+				//width: emCalc(25px);
+				overflow: hidden;
+				text-indent: -9999px;
+				//background: url(../img/close-icon.png) no-repeat center center transparent;
+				z-index: 999;
+			}
+			.search{
+				@include form-element();
+				float: left;
+				width: auto;
+				margin-bottom: 0px;
+				overflow: hidden;
+				text-indent: -9999px;
+				border: $anchor-font-color-hover;
+				background: none no-repeat center center $anchor-font-color;
+				&:hover{
+					background-color: $anchor-font-color-hover;
+				}
+			}
+		}
+		@media #{$small} {
+			@include grid-column(6);
+			@include vMargin(0);
+		}
+	}
+	.sorting {
+		@include grid-column(12);
+		.sorting-holder{
+			@include grid-row($behavior: nest);
+			.message-button {
+				@include grid-column(12);
+				a{
+					@extend .regular-button;
+					@extend .secondary;
+					width: 100%;
+					height: 2.4em;
+					margin-top: emCalc(3px);
+					margin-bottom: 0;
+					background: url(../img/descending.png) 90% center no-repeat $gray;
+				}
+				.selected-ascending, .selected-descending {
+					background: url(../img/ascending.png) 90% center no-repeat darken($primary-color, 5);
+					border-color: darken($primary-color, 10);
+					&:hover {
+						background-color: darken($primary-color, 10);
+					}
+				}
+				.selected-descending { 
+					background: url(../img/descending.png) 90% center no-repeat darken($primary-color, 5);
+				}
+				@media #{$small} {
+					@include grid-column(4, $collapse: true);
+					@include hSpacer(.3);
+					margin-top: 0px;
+					a{
+						margin-top: 0px;
+					}
+					&:first-child{
+						padding-left: 0;
+					}
+					&:last-child{
+						padding-right: 0;
+					}
+				}
+			}
+		}
+		@media #{$small} {
+			@include grid-column(6);
+		}
+	}
+}
+.message-list{
+	position: relative;
+	@include vMargin(1);
+	.options{
+		width: emCalc(24px);
+		height: emCalc(24px);
+		overflow: hidden;
+		text-indent: -999px;
+		background: url(../img/close-icon.png) center center no-repeat transparent;
+		position: absolute;
+		top: emCalc(10px);
+		right: emCalc(10px);
+		@media #{$small} {
+			right: 0;
+		}
+		input {
+			display: block;
+			float: right;
+		}
+	}
+}
+.message-holder {
+	@include grid-row();
+	@include vMargin(1);
+	.avatar{
+		@include grid-column(12);
+		img {
+			display: none;
+		}
+		@media #{$small} {
+			@include grid-column(2);
+			img{
+				display: block;
+				height: auto !important;
+				border: 1px solid $dark-gray !important;
+				@include border-radius(75%);
+				margin: 0 auto;
+				width: emCalc(120px) !important;
+				&:hover {
+					border-color: $gray !important;
+					transition: border 0.3s;
+				}
+			}
+		}
+	}
+	.content {
+		@extend %boxed-content;
+		@include grid-column(12);
+		cursor: pointer;
+		&:hover{
+			background-color: ($lite-gray, 0.2);
+		}
+		&:after, &:before {
+			display: none;
+		}
+		.date{
+			@include adjust-font-size-to(14px);
+		}
+		@media #{$small} {
+			@include grid-column(10);
+		}
+	}
+	@media #{$small} {
+		@include grid-row($behavior: nest);
+		.content {
+			&:after, &:before { 
+				content: ' ';
+				display: block;
+				position: absolute;
+				border-style: solid;
+				width: 0;
+				height: 0;
+			}
+			&:after {
+				top: 30px;
+				left: -18px;
+				border-color: transparent white transparent transparent;
+				border-width: 9px;
+			}
+			&:before {
+				top: 29px;
+				left: -20px;
+				border-color: transparent $dark-gray transparent transparent;
+				border-width: 10px;
+			}
+		}
+	}
+}
+.message-details{
+	.file-gallery {
+		@include vSpacer(1);
+		border-top: 1px dotted $gray;
+		h3{
+			font-family: $bold-font-family;
+			font-size: emCalc(16px);
+		}
+	}
+}
+.message-form {
+	& > dl {
+		margin-bottom: 0;
+		margin-top: emCalc(20px);
+		& > dd, .file-holder{
+			@extend %boxed-content
+		}
+	}
+	.RadEditor {
+		margin-bottom: 1em;
+	}
+	.edit-title {
+		@include clearfix();
+		padding: emCalc(10px) 0;
+		label{
+			font-family: $header-font-family;
+			font-size: emCalc(26px);
+			margin:0;
+			@media #{$small} {
+				float: left;
+			}
+		}
+	}
+	.attached-files{
+		font-family: $header-font-family;
+		font-size: emCalc(26px);
+		margin:0;
+		@media #{$small} {
+			float: left;
+		}
+	}
+	.recipient-holder {
+		@include clearfix();
+	}
+	.message-address-entry {
+		width: 85%;
+		float: left;
+		.rcbInput {
+			margin-bottom: 1em !important;
+		}
+	}
+	input[type="image"] {
+		@include form-element();
+		float: left;
+		width: 15%;
+		margin-bottom: 0px;
+		overflow: hidden;
+		text-indent: -9999px;
+		border: $darker-gray;
+		background: url(../img/people-icon.png) no-repeat center center $gray;
+		&:hover{
+			background-color: $darker-gray;
+		}
+	}
+	.message-label {
+		@include adjust-font-size-to(26px);
+		@include vMargin(0.5);
+		font-family: $header-font-family;
+	}
+	.chk-box {
+		label {
+			@include adjust-font-size-to(16px);
+			margin: 0;
+			font-family: $body-font-family;
+		}
+	}
+}
+.button-holder {
+	a{
+		margin-bottom: emCalc(10);
+		margin-top: emCalc(10);
+	}
+}
+.checkbox-messaging {
+	span{
+		margin-right: emCalc(10px);
+		input{
+			margin-bottom: 0;
+		}
+	}
+}
+.tabs-wrapper {
+	@include clearfix();
+	.tabs {
+		ul {
+			margin: 0;
+		}
+		li {
+			float: left;
+			list-style-type: none;
+			width: 100%;
+			a {
+				@extend .regular-button;
+				width: 100%;
+				margin-bottom: emCalc(3px);
+				background-color: $gray;
+				border-color: $darker-gray;
+				&:hover {
+					background-color: darken($gray, 20);
+					border-color: darken($darker-gray, 20);
+				}
+			}
+			@media #{$small} {
+				width: 25%;
+				margin-right: emCalc(5px);
+			}
+			.selected {
+				background-color: $primary-color;
+				border-color: darken($primary-color, 10);
+				&:hover {
+					background-color: darken($primary-color, 10);
+					border-color: darken($primary-color, 20);
+				}
+			}
+			&.current {
+				a {
+					background-color: $primary-color;
+					border-color: darken($primary-color, 10);
+					&:hover {
+						background-color: darken($primary-color, 10);
+						border-color: darken($primary-color, 20);
+					}
+				}
+			}
+		}
+	}
+}
+
+.valid-user-messages {
+	.RadComboBox {
+		margin-bottom: 10px !important;
+	}
+	.rcbInput {
+		padding-left: 10px !important;
+	}
+}
+.message-unread {
+	font-family: $bold-font-family;
+	h2, .subject {
+		font-family: $bold-font-family;
+	}
+	.content {
+		background-color: lighten($success-color, 55%);
+		&:after {
+			border-color: transparent lighten($success-color, 55%) transparent transparent;
+		}
+	}
+}

@@ -1,0 +1,298 @@
+.photos {
+	@include grid-column(12);
+	.photo-title-holder {
+		//@include grid-column(12);
+	}
+	.photo-content-holder {
+		//@include grid-column(12);
+	}
+	.pager-holder {
+		//@include grid-column(12);
+	}
+	.main-options {
+		@include grid-row($behavior: nest);
+		@include vMargin(1, bottom);
+		@media #{$small} {
+			@include grid-row();
+		}
+		.button-wrapper {
+			@include grid-column(12);
+			margin-top: emCalc(2px);
+			a.photo-button{
+				@extend .regular-button;
+				@extend .secondary;
+				margin: 0;
+				width: 100%;
+			}
+			a.add-new-album{
+				@extend .regular-button;
+				margin-bottom: 0;
+				width: 100%;
+			}
+			@media #{$small} {
+				@include grid-column(3, $collapse: true);
+				@include hSpacer(.3);
+				margin-top: 0px;
+				&:first-child{
+					padding-left: 0;
+				}
+				&:last-child{
+					padding-right: 0;
+				}
+			}
+		}
+		.share-button-wrapper {
+			@include grid-column(12);
+			margin-top: emCalc(5);
+			@media #{$small} {
+				@include grid-column(3, $collapse: true);
+				float: right;
+				a{
+					float: right;
+				}
+			}
+		}
+	}
+	.title-holder {
+		@include grid-row($behavior: nest);
+		overflow: hidden;
+		.title {
+			@include grid-column(12, $collapse: true);
+			@include vMargin(2, bottom);
+			span {
+				@extend p;
+			}
+		}
+	}
+}
+.album-list {
+	@include grid-row($behavior: nest);
+	@include vMargin(2);
+	@media #{$small} {
+		@include grid-row();
+		@include vMargin(2);
+	}
+	.item {
+		@include grid-column(12);
+		//margin-bottom: emCalc(10px);
+		.item-holder {
+			@include clearfix();
+			@extend %boxed-content;
+			position: relative;
+			overflow: hidden;
+			.photo-count {
+				position: absolute;
+				top: emCalc(30px);
+				left: emCalc(10px);
+				padding: emCalc(10px);
+				background: rgba($black, 0.8);
+				color: $white;
+			}
+		}
+		@media #{$small} {
+			@include grid-column(3, $collapse: true);
+			padding: 3px;
+			
+			//margin-bottom: emCalc(0px);
+		}
+	}
+	.photo-wrapper {
+		display: block;
+		width: 100%;
+		@include clearfix();
+		img {
+			width: 100%;
+			display: block;
+		}
+	}
+	.options{
+		@include adjust-font-size-to(14px);
+		width: 100%;
+		.options-holder {
+			width: 100%;
+		}
+		.author {
+			display: block;
+			width: 100%;
+		}
+		.edit, .delete {
+			float: left;
+			margin-right: emCalc(10px);
+		}
+	}
+	strong{
+		@include vMargin(1);
+		display: block;
+	}
+	.privacy-level-Public {
+		background: url(../img/photo-privacy-public.png) center center no-repeat transparent;
+		width: emCalc(32px);
+		height: emCalc(18px);
+		float: right;
+	}
+	.privacy-level-Private {
+		background: url(../img/photo-privacy-private.png) center center no-repeat transparent;
+		width: emCalc(32px);
+		height: emCalc(18px);
+		float: right;
+	}
+	.privacy-level-Friends {
+		background: url(../img/photo-privacy-friends.png) center center no-repeat transparent;
+		width: emCalc(32px);
+		height: emCalc(18px);
+		float: right;
+	}
+	.photo-preview {
+		width: 100%;
+		padding-left: emCalc(15);
+		padding-right: emCalc(15);
+	}
+}
+.photo-list {
+	@include grid-row();
+}
+.photo-comments {
+	@include vMargin(2, bottom);
+	a{
+		margin-bottom: 0;
+	}
+	.comment{
+		@include grid-row();
+		@include vMargin(2);
+		.user-avatar {
+			@include grid-column(12, $collapse:true);
+			img{
+				display: none;
+			}
+			@media #{$small} {
+				@include grid-column(2);
+				img{
+					display: block;
+					width: emCalc(120px) !important;
+					height: auto !important;
+					border: 1px solid $dark-gray !important;
+					@include border-radius(75%);
+					&:hover {
+						border-color: $gray !important;
+						transition: border 0.3s;
+					}
+				}
+			}
+			.author{
+				@extend .regular-button;
+				@include vMargin(1, top);
+				width: 100%;
+				margin-bottom: 0px;
+				@media #{$small} {
+					font-size: emCalc(12px);
+					padding: emCalc(10px);
+				}
+			}
+		}
+		.content {
+			@include grid-column(12);
+			@extend %boxed-content;
+			overflow: hidden;
+			@media #{$small} {
+				@include grid-column(10);
+				&:after, &:before { 
+					content: ' ';
+					display: block;
+					position: absolute;
+					border-style: solid;
+					width: 0;
+					height: 0;
+				}
+				&:after {
+					top: 30px;
+					left: -18px;
+					border-color: transparent white transparent transparent;
+					border-width: 9px;
+				}
+				&:before {
+					top: 29px;
+					left: -20px;
+					border-color: transparent $dark-gray transparent transparent;
+					border-width: 10px;
+				}
+			}
+		}
+	}
+	.comment-composer {
+		@include vSpacer(2, bottom);
+		border-bottom: 1px dotted $gray;
+	}
+	a {
+		@include vMargin(1);
+	}
+}
+.TextBox {
+	@include form-element();
+}
+.photos-edit {
+	@include vMargin(2);
+	.chk-box{
+		@extend %boxed-content;
+		input[type="checkbox"] {
+			float: left;
+			margin-right: emCalc(10px);
+			margin-top: emCalc(5px);
+		}
+	}
+}
+.photo-album-list {
+	@include grid-row();
+	@include vMargin(1);
+	.title-holder {
+		@include grid-column(12);
+		float: none;
+	}
+}
+.upload-holder {
+	@include vMargin(2);
+	.photo-gallery {
+		@extend %boxed-content;
+	}
+	.button-wrapper {
+		@include vMargin(2, bottom);
+	}
+}
+.photo-item {
+	@extend %boxed-content;
+	width: 100%;
+	.options {
+		width: 100%;
+		@include clearfix();
+		@include vSpacer(2);
+	}
+	.gallery-photo-thumb {
+		display: block;
+		@include vSpacer(2);
+		@include hSpacer(2);
+		background: $black;
+		img {
+			margin: 0 auto;
+			display: block;
+		}
+	}
+	h3{
+		@include vSpacer(1);
+	}
+}
+.addthis_toolbox {
+	text-align: center;
+	.addthis_button_facebook, .addthis_button_twitter, .addthis_button_compact  {
+		margin-right: emCalc(10px);
+		float: left;
+		span {
+			margin: 0;
+		}
+	}
+}
+
+.album-empty-message {
+	margin-top: - emCalc(45);
+}
+.main-album-empty-message {
+	margin-top: - emCalc(35);
+}

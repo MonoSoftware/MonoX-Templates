@@ -1,0 +1,420 @@
+.blog{
+	@include vMargin(2);
+	.blog-info, .blog-categories {
+		dl, dd, ul, li{
+			@include vMargin(0);
+			list-style-type: none;
+		}
+	}
+	.blog-info{
+		h1 {
+			@include vMargin(.5);
+		}
+	}
+	.file-gallery-wrap {
+		@extend %boxed-content;
+	}
+	.main-options {
+		@include grid-row();
+		a.blog-button{
+			@extend .regular-button;
+			@extend .secondary;
+			margin: 0;
+			width: 100%;
+		}
+		a.add-new-post{
+			@extend .regular-button;
+			margin-bottom: 0;
+			width: 100%;
+		}
+		.button-wrapper{
+			@include grid-column(12, $collapse: true);
+			margin-top: 2px;
+			@media #{$small} {
+				@include grid-column(3, $collapse: true);
+				@include hSpacer(.3);
+				margin-top: 0px;
+				&:first-child{
+					padding-left: 0;
+				}
+				&:last-child{
+					padding-right: 0;
+				}
+			}
+		}
+		ul{
+			list-style-type: none;
+			width: 100%;
+			margin-bottom: 0px;
+			li{
+				position: relative;
+				display: block;
+				margin-top: 2px;
+				ul.level0 {
+					display: block;
+					margin-left: 0;
+				}
+				&:hover{
+					ul.level0{
+						display: block;
+						margin-left: 0;
+					}
+				}
+				@media #{$small} {
+					margin-top: 0px;
+					ul.level0 {
+						display: none;
+					}
+					&:hover{
+						ul.level0{
+							position: absolute;
+							z-index: 99;
+							li{
+								margin-top: 2px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.comment-holder {
+		position: relative;
+		border: none;
+		background-color: transparent;
+		h2{
+			border-bottom: 1px solid $gray;
+		}
+	}
+	.comment-top {
+		margin-bottom: emCalc(20px);
+		@media #{$small} {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin-bottom: 0;
+		}
+		a{
+			display: inline-block;
+			margin-left: emCalc(10px);
+			color: $anchor-font-color;
+			@include vMargin(1, top);
+			&:hover{
+				color: $anchor-font-color-hover;
+			}
+			@media #{$small} {
+				@include vMargin(2, top);
+			}
+		}
+	}
+	.blog-title-quote {
+		margin-top: emCalc(10px);
+		padding-left: emCalc(30px);
+		background: url(../img/blog-title-icon.png) no-repeat left top transparent;
+		font-style: italic;
+		color: $even-darker-gray;
+		@include vSpacer(1, bottom);
+		@include vMargin(1, top);
+		border-bottom: 1px dotted $gray;
+		a{
+			color: $even-darker-gray;
+			line-height: emCalc(18px);
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+	.comment-list {
+		.options {
+			padding: 0;
+		}
+	}
+	.comment-form {
+		@extend %boxed-content;
+		dl, a{
+			margin-bottom: 0;
+		}
+	}
+	.blog-list-post-holder {
+		@include vMargin(3, top);
+	}
+}
+
+.blog-list-post, .blog-item {
+	@extend %gridRow;
+	@include vMargin(3, bottom);
+	.avatar{
+		@include grid-column(12, $collapse:true);
+		img{
+			display: none;
+		}
+		@media #{$small} {
+			@include grid-column(2);
+			img{
+				display: block;
+				height: auto !important;
+				border: 1px solid $dark-gray !important;
+				@include border-radius(75%);
+				&:hover {
+					border-color: $gray !important;
+					transition: border 0.3s;
+				}
+			}
+		}
+		
+		.author{
+			@extend .regular-button;
+			@include vMargin(1, top);
+			width: 100%;
+			margin-bottom: 0px;
+			@media #{$small} {
+				font-size: emCalc(12px);
+				padding: emCalc(10px);
+			}
+		}
+	}
+	.content{
+		@include grid-column(12);
+		@extend %boxed-content;
+		overflow: hidden;
+		@media #{$small} {
+			@include grid-column(10);
+			&:after, &:before { 
+				content: ' ';
+				display: block;
+				position: absolute;
+				border-style: solid;
+				width: 0;
+				height: 0;
+			}
+			&:after {
+				top: 30px;
+				left: -18px;
+				border-color: transparent white transparent transparent;
+				border-width: 9px;
+			}
+			&:before {
+				top: 29px;
+				left: -20px;
+				border-color: transparent $dark-gray transparent transparent;
+				border-width: 10px;
+			}
+		}
+	}
+	.unpublishedPost, .unapprovedComment {
+		background-color: lighten($success-color, 55);
+		&:after {
+				border-color: transparent lighten($success-color, 55) transparent transparent;
+			}
+	}
+	.spamComment {
+		background-color: lighten($alert-color, 55);
+		&:after {
+				border-color: transparent lighten($alert-color, 55) transparent transparent;
+			}
+	}
+	.rating{
+		@include vSpacer(2);
+		border-top: 1px dotted $gray;
+		border-bottom: 1px dotted $gray;
+	}
+	.tags{
+		@include vSpacer(2);
+		&:empty {
+			display: none;
+		}
+		line-height: 1.5;
+	}
+	.options{
+		@include vSpacer(3, top);
+		font-size: emCalc(13px);
+		a{
+			margin-right: emCalc(10px);
+			line-height: 1.7em;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+	ul {
+		li {
+			margin-left: emCalc(20);
+		}
+	}
+	.file-gallery {
+		@include vMargin(1, bottom);
+	}
+}
+.blog-item {
+	line-height: 1.6;
+}
+.blog-list {
+	@include grid-row($behavior: nest);
+	@include vSpacer(1);
+	border-bottom: 1px dotted $gray;
+	.avatar {
+		@include grid-column(2);
+		padding-right: 0;
+		img {
+			@include border-radius(999px);
+		}
+	}
+	.content{
+		@include grid-column(10);
+	}
+}
+.blog-categories {
+	@extend %boxed-content;
+	li{
+		padding-left: emCalc(20px);
+		background: url(../img/list-pointer-50.png) no-repeat left center transparent;
+	}
+}
+.blog-categories-holder {
+	@include clearfix();
+	@include vMargin(0, bottom);
+	.button-holder {
+		float: left;
+		a{
+			float: left;
+			margin-top: 0;
+		}
+	}
+	a {
+		margin-bottom: 0.68em;
+		@media #{$small} {
+			margin-left: emCalc(0) !important;
+			margin-top: 0 !important;
+
+		}
+	}
+	.label {
+		font-family: $header-font-family;
+		font-size: emCalc(26px);
+		@include vMargin(1);
+	}
+}
+.blog-categories-wrapper {
+	@include clearfix();
+	.RadListBox_MetroTouch  {
+		.rlbNoButtonText {
+			.rlbButtonText {
+				line-height: 37px;
+				padding-left: 27px;
+			}
+		}
+	}
+}
+.blog-edit-settings {
+	//@extend %boxed-content;
+	input[type="checkbox"] {
+		float: left;
+		margin:0;
+		display: block;
+		margin-right: emCalc(10px);
+	}
+	label {
+		line-height: 1em;
+		overflow: hidden;
+	}
+	.check-box-list {
+		@include grid-row();
+		li{
+			list-style-type: none;
+			height: baseCalc(3px);
+			@include grid-column(12);
+			@media #{$small} {
+				@include grid-column(4);
+				height: baseCalc(5px);
+			}
+		}
+	}
+	.categories {
+		@extend %boxed-content;
+		.check-box-list {
+			@include vMargin(1, top);
+			@media #{$small} {
+				@include vMargin(3, top);
+			}
+		}
+		.RadEditor {
+			.reContentArea {
+				max-height: 192px;
+			}
+		}
+	}
+	.edit-title {
+		@include clearfix();
+		padding: emCalc(10px) 0;
+		label{
+			font-family: $header-font-family;
+			font-size: emCalc(26px);
+			margin:0;
+			@media #{$small} {
+				float: left;
+			}
+		}
+		a {
+			line-height: 1em;
+			@include vMargin(1, top);
+			display: block;
+			@media #{$small} {
+				float: right;
+				@include vMargin(0, top);
+			}
+		}
+	}
+	.categories-title {
+		div {
+			dl {
+				dd {
+					& > span{
+						font-family: $header-font-family;
+						font-size: emCalc(26px);
+						margin:0;
+					}
+				}
+			}
+		}
+	}
+	.post-edit-title {
+		& > label{
+			font-family: $header-font-family;
+			font-size: emCalc(26px);
+			padding: emCalc(10px) 0;
+			display: block;
+			margin: 0;
+		}
+		.silverlight-upload {
+			border: 0px;
+			padding-left: 0;
+			padding-right: 0;
+			.upload-button {
+				margin-bottom: 10px;
+			}
+		}
+	}
+	.chk-list {
+		dl{
+			@include vMargin(1);
+		}
+		dd{
+			@include clearfix();
+			span, label {
+				float: left;
+				display: block;
+			}
+		}
+	}
+}
+.date-picker-holder {
+	.RadPicker {
+		@media #{$small} {
+			width: 33% !important;
+		}
+	}
+}
+.blog-information, .tag-cloud {
+	@extend %boxed-content;
+}

@@ -1,0 +1,106 @@
+.file-gallery-holder {
+	margin-top: emCalc(10);
+	@include clearfix();
+	.group-template {
+		float: left;
+		//@include grid-column(3);
+		@media #{$small} {
+			//@include grid-column(2);
+		}
+		.icon-holder {
+			a{
+				display: block;
+				//width: emCalc(70px);
+				//height: emCalc(70px);
+				//@include border-radius(999px);
+				margin-right: 5px;
+				margin-top: 5px;
+				overflow: hidden;
+				img{
+					height: 70px;
+					width: auto;
+				}
+			}
+		}
+	}
+	.item{
+		position: relative;
+	}
+	.gallery-options {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		.delete{
+			a{
+				display: block;
+				width: emCalc(24px);
+				height: emCalc(24px);
+				background: url(../img/delete-icon.png) no-repeat center center transparent; 
+				&:hover {
+					background: url(../img/delete-icon-o.png) no-repeat center center transparent; 
+				}
+			}
+		}
+		.privacy-level-Friends, .privacy-level-Private {
+			display: block;
+			width: emCalc(24px);
+			height: emCalc(24px);
+			background-image: url(../img/wall-icons.png);
+			background-position: left center;
+			top: 0;
+			right: emCalc(5px);
+			&:hover {
+				background-image: url(../img/wall-icons.png);
+				background-position: left center;
+			}
+		}
+		.privacy-level-Private {
+			background-image: url(../img/private-icon.png);
+			background-position: left top;
+
+			&:hover {
+				background-image: url(../img/private-icon-o.png);
+				background-position: left top;
+
+			}
+		}
+
+	}
+}
+
+//Recent Photos
+.slides {
+	position: relative;
+	text-align: center;
+	img {
+		width: 100%;
+	}
+}
+.slidesjs-navigation {
+	@include border-radius(1000px);
+	display: inline-block;
+	width: emCalc(30);
+	height: emCalc(30);
+	background: rgba($primary-color, .5);
+	color: $white;
+	position: absolute;
+	top: 30%;
+	z-index: 99;
+	&:hover, &:active {
+		color: $white;
+		background: rgba($primary-color, 1);
+	}
+	i {
+		line-height: 2;
+	}
+}
+.slidesjs-previous {
+	left: emCalc(15);
+}
+.slidesjs-next {
+	right: emCalc(15);
+}
+.jq-slide {
+	background-color: $lite-gray;
+}

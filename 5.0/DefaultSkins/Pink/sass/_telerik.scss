@@ -1,0 +1,288 @@
+.RadComboBox .rcbInput {
+	border: 1px solid $gray !important;
+}
+.RadComboBox_MetroTouch{
+	table{
+		td{
+			background-color: $white !important;
+		}
+	}
+	.rcbInput{
+		@include form-element();
+		border: 1px solid $gray !important;
+	}
+	.rcbArrowCell{
+		@include form-element();
+		width: 1px !important;
+		padding: 0px !important;
+		border: 0px !important;
+		position: relative !important;
+		a{
+			background: url(../img/dropdown-arrow.png) no-repeat center center;
+			position: absolute;
+			right: 35px;
+			top: 10px;
+			display: block;
+		}
+	}
+	.rcbInputCell{
+		padding: 0px !important;
+	}
+}
+.RadComboBoxDropDown_MetroTouch{
+	border: 1px solid $gray !important;
+	margin-top: 0px;
+	.rcbScroll{
+		background-color: #f6f6f6;
+	}
+}
+
+.upload-container {
+	padding: 0;
+	.ruFakeInput {
+		float: left !important;
+		width: 95px;
+	}
+}
+.RadPicker {
+	width: 100% !important;
+	height: auto !important;
+	input[type="text"] {
+		@include form-element();
+	}
+	.rcTable {
+		width: 100% !important;
+	}
+	.RadInput_Default, .RadInputMgr_Default, .riTextBox {
+		font: 16px $body-font-family !important;
+		border-color: #ccc !important;
+	}
+}
+.required-field {
+	.RadPicker {
+		.riTextBox {
+			border-left: emCalc(5px) solid $alert-color !important;
+		}
+	}
+}
+
+//.RadRating_PortalRating {
+	//margin-top: -8px;
+//}
+
+.RadRating_PortalRating a,
+.RadRating_PortalRating a span {
+	background-image: url(../img/Sn/Discussion/rating-sprite.png);
+}
+.RadComboBox_AutoCompleteBox {
+	.rcbInputCell {
+		padding: 0 !important;
+	}
+}
+.discussion-form {
+	.RadComboBox_AutoCompleteBox {
+		.rcbInput {
+			padding: 0 10px !important;
+		}
+	}
+}
+.RadEditor{
+	height: 251px !important;
+	.reContentCell {
+		border: none !important;
+	}
+	.reContentArea {
+		height: 100% !important;
+	}
+	& > table {
+		height: 100%;
+	}
+}
+.rad-upload-container {
+	.RadUpload {
+		width: 100% !important;
+	}
+	.ruFileWrap {
+		width: 100%;
+		height: auto !important;
+		.ruFakeInput {
+			@include form-element();
+			width: 70% !important;
+			float: left !important;
+			height: 3.2em;
+		}
+		.ruButton.ruBrowse {
+			float: left;
+			@extend .regular-button;
+			height: 3.2em;
+			background-image: none !important;
+			@include border-radius(0 3px 3px 0);
+		}
+	}
+}
+.rad-upload-standalone {
+	@extend %boxed-content;
+	input[type="checkbox"] {
+		margin-right: emCalc(10px);
+		margin-top: emCalc(10px); 
+	}
+	input.ruBrowse {
+		background-color: $black !important; 
+		border-color: $black !important;
+		height: 2.10em !important;
+	}
+	input.ruRemove {
+		background-color: transparent !important;
+		border: none !important;
+	}
+	.ruActions {
+		@include vSpacer(1, bottom);
+	}
+	.ruFileWrap {
+		width: auto;
+	}
+
+}
+.RadMenu {
+	font-family: $body-font-family !important;
+	.rmRootGroup {
+		background-color: $primary-color !important;
+	}
+	.rmLink{
+		border: none !important;
+		&:hover {
+			background-color: lighten($primary-color, 10%) !important;
+		}
+	}
+}
+
+.reInsertImageWrapper, .reInsertLinkWrapper, .reInsertTableLightWrapper {
+	//padding: 0px !important;
+}
+.reControlCellLight {
+	select {
+		margin-bottom: 0px !important;
+	}
+}
+.reConfirmCancelButtonsTblLight {
+	margin: 0px !important;
+	button {
+		padding: 0px;
+		background-color: transparent;
+		color: $primary-color;
+		text-align: left;
+		border: 0px;
+		display: inline !important;
+		&:focus {
+			border: 0px;
+		}
+		&:active {
+			border: 0px;
+		}
+	}
+}
+.RadMenu {
+	margin: 25px !important;
+	.rmGroup {
+		.rmText {
+			padding: 0 !important;
+
+		}
+	}
+}
+
+
+//
+
+
+.RadWindow {
+	@include clearfix();
+	.rwTopLeft, .rwTopRight, .rwTitlebar, .rwFooterLeft, .rwFooterRight, .rwFooterCenter {
+		height: auto !important;
+	}
+	.rwTable {
+		margin-bottom: 0px !important;
+	}
+	table, tr, td {
+		margin-bottom: 0px !important;
+		padding: 0px !important;
+	}
+	.rwStatusbarRow {
+		padding: 10px !important;
+	}
+	.rwTitlebarControls {
+		td{
+			background-color: $black !important;
+			font-family: $body-font-family !important;
+			vertical-align: middle;
+			a {
+				&:hover {
+					border: none !important
+				}
+			}
+			a, em, span {
+				font-family: $body-font-family !important;
+			}
+			em {
+				padding-top: 8px !important;
+			}
+		}
+		.rwIcon {
+			display: none !important;
+		}
+	}
+	.rwTitlebar, .rwTopLeft, .rwTopRight {
+		background-color: $black !important;
+	}
+	.rwDialogPopup {
+		.rwPopupButton {
+			border: 0px !important;
+			span {
+				background-color: $primary-color;
+				color: $white;
+				&:hover {
+					background-color: darken($primary-color, 10);
+				}
+			}
+		}	
+	}
+	.rwWindowContent {
+		.RadUpload {
+			width: 100% !important;
+		}
+	}
+}
+
+.RadWindow_MetroTouch {
+	.rwCorner, .rwFooterRow {
+		background-color: $black !important;
+	}
+	.rwFooterRow {
+		td{
+			height: 7px !important;
+		}
+	}
+	.rwDialogText {
+		font-family: $body-font-family !important;
+	}
+}
+.RadTabStrip_MetroTouch {
+	font-family: $body-font-family !important;
+	.rtsTxt {
+		padding: 10px 15px !important;
+	}
+}
+.RadWindow_MetroTouch {
+	.rwTable {
+		.rwControlButtons {
+			li {
+				a {
+					&:hover {
+						border: 1px solid transparent !important;
+					}
+				}
+			}
+		}
+	}
+} 
+

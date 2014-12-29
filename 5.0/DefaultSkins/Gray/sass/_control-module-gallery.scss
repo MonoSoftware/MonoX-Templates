@@ -1,0 +1,544 @@
+.people-search {
+	& > span {
+		@include vSpacer(1);
+		display: block;
+	}
+	@include grid-row();
+	.search-textbox {
+		@include grid-column(12, $collapse: true);
+	}
+	.options {
+		@include grid-column(12, $collapse: true);
+		@include clearfix();
+		div.button-wrapper{
+			width: 100%;
+			padding-bottom: emCalc(1px);
+			a {
+				width: 100%;
+				padding: emCalc(15px)
+			}
+			@media #{$small} {
+				width: 50%;
+				float: left;
+				&:first-child{
+					padding: 0 emCalc(3px) emCalc(1px) 0;
+				}
+				&:last-child{
+					padding: emCalc(2px) emCalc(3px) emCalc(3px) 0;
+					float: left;
+				}
+			}
+		}
+	}
+}
+.empty-message {
+	@include vMargin(1);
+	display: block;
+	//float: left;
+	border: 1px solid $orange;
+	@include border-radius(6px);
+	background-color: lighten($orange, 30);
+	padding: emCalc(15);
+	line-height: 1.2;
+}
+.error-empty-message {
+	display: block;
+	background-color: lighten($alert-color, 50);
+	border: 1px solid $alert-color;
+	clear: both;
+	color: $alert-color;
+	@include vSpacer(1, top);
+	float: left;
+}
+.search-item {
+	@extend %boxed-content;
+	@include vMargin(1, bottom);
+}
+
+.search {
+	.search-wrapper {
+		border: 1px solid $gray;
+	}
+}
+.search-holder {
+	.search-wrapper {
+		border: none;
+	}
+}
+
+//PasswordRecowery - START
+.pass-control-holder {
+	@include grid-row();
+	input {
+		@include grid-column(11);
+	}
+	img {
+		@include grid-column(1);
+		padding: 0;
+	}
+}
+.captcha-form {
+	@include grid-row();
+	.image-captcha {
+		@include grid-column(12, $collapse: true);
+		padding-right: emCalc(2px);
+		img {
+			width: 100%;
+			height: auto;
+		}
+		@media #{$small} {
+			@include grid-column(4, $collapse: true);
+			padding-right: emCalc(2px);
+			img{
+				height: 39px;
+			}
+		}
+	}
+	.captcha-input {
+		@include grid-column(12, $collapse: true);
+		padding-left: emCalc(2px);
+		@include vMargin(1, top);
+		@media #{$small} {
+			@include grid-column(8, $collapse: true);
+			padding-left: emCalc(2px);
+			@include vMargin(0, top);
+		}
+		.refresh {
+			position: absolute;
+		}
+		input[type="text"] {
+			padding-left: emCalc(30);
+		}
+	}
+}
+.small-text {
+	@include adjust-font-size-to(14px);
+	font-family: $serif-font-family;
+	color: $darker-gray;
+	font-style: italic;
+}
+//PasswordRecowery - END
+
+
+
+//Polls - START
+.poll {
+	table{
+		width: 100%;
+	}
+	@extend %boxed-content;
+	@include vMargin(2);
+	input {
+		float: left;
+		margin-right: emCalc(10px);
+	}
+	.button-holder {
+		@include vMargin(1, top);
+		@include vSpacer (1, top);
+		border-top: 1px dotted $gray;
+		a {
+			@extend .regular-button;
+			margin-bottom: 0;
+		}
+	}
+	.answer {
+		display: block;
+		margin-bottom: emCalc(10);
+	}
+}
+//Polls - END
+
+//HelloWorld - START
+.hello-world, .rss-provider {
+	input[type="submit"] {
+		@extend .regular-button;
+	}
+}
+//HelloWorld - END
+.file-view {
+	@extend %boxed-content;
+	@include vMargin(2);
+	.date-option {
+		a{
+			@extend .regular-button;
+		}
+	}
+}
+.user-profile-standalone {
+	@include grid-row($behavior: nest);
+	.avatar-holder {
+		@include grid-column(12);
+		img{
+			width: 100% !important;
+		}
+		@media #{$small} {
+			@include grid-column(2);
+		}
+	}
+	.details {
+		@include grid-column(12);
+		.status-holder {
+			@include grid-row($behavior: nest);
+			.status-composer {
+				@include grid-column(9, $collapse: true);
+				.reset-status {
+					background: url(../img/close-icon.png) center center no-repeat transparent;
+					display: block;
+					width: emCalc(11px);
+					height: emCalc(11px);
+					position: absolute;
+					top: emCalc(15px);
+					right: emCalc(10px);
+				}
+			}
+			.submit-holder {
+				@include grid-column(2, $collapse: true);
+				a {
+					width: 100%;
+					@extend .regular-button;
+				}
+			}
+			& > span {
+				@include grid-column(1, $collapse: true);
+				.Public {
+					text-align: center;
+				}
+			}
+		}
+		@media #{$small} {
+			@include grid-column(10);
+		}
+	}
+}
+
+// AdModule
+
+.ad-module {
+	@extend %boxed-content;
+}
+
+// Captcha
+
+.captcha {
+	@extend %boxed-content;
+}
+.contact-holder, .page-login, .user-account {
+	.captcha {
+		@extend .clean-content;
+	}
+}
+
+//SilverlightUpload
+
+.google-maps {
+	@extend %boxed-content;
+}
+
+//Blog
+
+.blog-short-list {
+	@extend %boxed-content;
+	.blog-short-list-wrapper {
+		dl.blog-list {
+			margin-left: emCalc(5);
+			margin-right: emCalc(5);
+			dd {
+				margin-bottom: 0px;
+			}
+			&:last-child {
+				border-bottom: 0;
+			}
+		}
+		.avatar {
+			padding-left: 0 !important;
+		}
+	}
+	
+}
+.RadRating {
+	margin-top: -6px;
+}
+
+//ActivationEmailRecovery
+
+.activation-email-recovery {
+	@extend %boxed-content;
+	.form-holder {
+		@include grid-column(11, $collapse: true);
+	}
+	.icon-holder {
+		@include grid-column(1, $collapse: true);
+		text-align: center;
+	}
+	.openid-container {
+		input[type="text"] {
+			background: none !important;
+		}
+	}
+}
+
+//LoginModule
+
+.login-module {
+	@extend %boxed-content;
+}
+#login-page {
+	.login-module {
+		@extend .clean-content;
+	}
+}
+.social-holder {
+	@extend %boxed-content;
+}
+#login-page {
+	.social-holder {
+		@extend .clean-content;
+	}
+}
+.rpx-login-holder {
+	@extend %boxed-content;
+}
+
+//MembershipEditor
+
+.membership-editor {
+	@extend %boxed-content;
+}
+.page-login {
+	.membership-editor {
+		@extend .clean-content;
+	}
+}
+
+//HelloWorld
+
+.hello-world {
+	@extend %boxed-content;
+	.styled-button {
+		margin-bottom: 0 !important;
+	}
+}
+
+//Newsletter
+
+.newsletter-subscription {
+	@extend %boxed-content;
+	display: block;
+}
+
+//TweetList
+
+.tweet-list {
+	@extend %boxed-content;
+}
+
+//SimpleSiteSearch 
+
+.simplesite-search {
+	input[type="submit"] {
+		@extend .regular-button;
+		float: right;
+		margin-left: emCalc(10px);
+		padding: emCalc(6px) emCalc(20px) emCalc(7px);
+	}
+	input {
+		overflow: hidden;
+	}
+}
+.people-search {
+	@extend %boxed-content;
+}
+//BlockUser
+
+.block-user {
+	@extend %boxed-content;
+	.search-textbox {
+		padding: 0;
+	}
+	.friend-list {
+		border-bottom: 1px dotted #CCCCCC;
+	    margin: 0;
+	    padding-bottom: 0.75em;
+	    padding-top: 0.75em;
+	}
+	.avatar {
+		margin-right: 0.9375em;
+	}
+	img {
+		@include border-radius(75%);
+	}
+	& > div {
+		&> div {
+			&:last-child {
+				border-bottom: 0px;
+			}
+		}
+	}
+}
+//Friends
+
+.friend-list-wrapper {
+	@extend %boxed-content;
+	& > div{
+		&:last-child {
+			border-bottom: 0px;
+		}
+	}
+}
+.people-suggest {
+	.friend-list-wrapper {
+		@extend .clean-content;
+	}
+}
+//VideoPlayer
+
+.video-container {
+	@extend %boxed-content;
+	video {
+		width: 100%;
+		height: auto;
+	}
+}
+//Groups
+
+.group-info {
+	@extend %boxed-content;
+}
+.social-groups {
+	@extend %boxed-content;
+	.title {
+		font-family: $bold-font-family;
+	}
+}
+.new-user-list {
+	@extend %boxed-content;
+	.my-friend-list {
+		float: left;
+		margin-right: 3px;
+		margin-bottom: 3px;
+	}
+}
+
+.blog-list-post-holder {
+	//@extend %boxed-content;
+}
+
+.side-bar {
+	.discussion {
+		@extend %boxed-content;
+	}
+}
+//LanguageChanger
+
+.language-changer {
+	@extend %boxed-content;
+}
+
+.droppable {
+	height: 0px !important;
+}
+
+.ui-droppable-disabled, .ui-state-active, .ui-state-dissabled, .ui-state-hover {
+	padding: emCalc(10px);
+	height: auto !important;
+}
+
+//SilverlightUpload
+
+.silverlight-upload {
+	@extend %boxed-content;
+	.upload-button {
+		margin-bottom: 0;
+	}
+}
+.discussion-form, .file-holder, .silverlight-file-holder, .photo-gallery, .wall {
+	.silverlight-upload {
+		@extend .clean-content;
+	}
+}
+
+//Lists
+
+.lists {
+	@extend %boxed-content;
+	& > div {
+		border-bottom: 1px dotted $gray;
+		@include vSpacer(2, bottom);
+		&:last-child {
+			border-bottom: 0px;
+		}
+	}
+}
+
+.soc-login {
+	.control-holder {
+		position: relative;
+		img {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+	}
+}
+
+.password-recovery {
+	.activation-email-recovery {
+		border: 0px;
+		padding: 0;
+	}
+}
+.people-search-message {
+	float: left;
+	.validation-summary {
+		@include vMargin(1);
+		border-color: $orange;
+		background-color: lighten($orange, 30);
+	}
+}
+
+.dashboard {
+	.blog-list-post-holder {
+		@extend %boxed-content;
+		& > div {
+			&:last-child {
+				border-bottom: 0px;
+			}
+		}
+		.blog-list {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+	.friend-suggestion-list {
+		@extend %boxed-content;
+	}
+	.social-groups {
+		& > div {
+			& > div {
+				margin-left: 0;
+				margin-right: 0;
+				&:last-child {
+					border-bottom: 0px;
+				}
+			}
+		}
+	}
+	.discussion {
+		& > div {
+			& > div {
+				&:last-child {
+					border-bottom: 0px;
+				}
+			}
+		}
+	}
+}
+.block-user {
+	a {
+		margin-bottom: emCalc(3px) !important;
+	}
+}
+.editor-height {
+	z-index: 99;
+}
+

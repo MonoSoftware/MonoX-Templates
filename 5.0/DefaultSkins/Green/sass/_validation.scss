@@ -1,0 +1,78 @@
+.required-field {
+	position: relative;
+	input, textarea {
+		border-left: emCalc(5px) solid $alert-color;
+		&:focus {
+			border-left: emCalc(5px) solid $alert-color;
+		}
+	}
+	.reContentArea, .riTextBox, .rcbInput {
+		border-left: emCalc(5px) solid $alert-color !important;
+	}
+}
+.validator {
+	font-family: $serif-font-family;
+	font-style: italic;
+	font-size: emCalc(12px);
+}
+input[type="text"], 
+input[type="password"], 
+input[type="date"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="month"], 
+input[type="week"], 
+input[type="email"], 
+input[type="number"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="time"], 
+input[type="url"], 
+textarea,
+select {
+	&.validator-field {
+		@include rgba-background(rgba($alert-color,0.15));
+	}
+
+}
+.validator-field {
+	.reContentArea {
+		@include rgba-background(rgba($alert-color,0.15));
+	}
+	.riTextBox {
+		background-color: rgba($alert-color, 0.15) !important;
+	}
+	.rcbInputCell {
+		input {
+			background-color: rgba($alert-color, 0.15) !important;
+		}
+	}
+}
+.required-message {
+	font-size: emCalc(14px);
+	color: $darker-gray;
+}
+.web-part-container {
+	float: left;
+	width: 100%;
+	.web-part-menu-button  {
+		// top: 10px !important;
+		// width: 35px !important;
+		// background-position: right top !important;
+	}
+}
+
+.validation-summary {
+	ul {
+		list-style-type: none;
+		margin-bottom: 0px;
+	}
+	border: emCalc(1) solid $alert-color;
+	background-color: lighten($alert-color, 50);
+	@include border-radius(6px);
+	padding: emCalc(10);
+}
+.validator-absolute {
+	position: absolute;
+	bottom: emCalc(5);
+}

@@ -1,0 +1,266 @@
+.textarea-holder {
+	margin-bottom: baseCalc(2);
+}
+
+.wall {
+	@media #{$small} {
+		margin-top: baseCalc(2.5);
+	}
+	.date-options {
+		@include vMargin(1, top);
+	}
+	.privacy {
+		float: right;
+		margin: 0 3px;
+		input {
+			border: 1px solid $dark-gray !important;
+			height: emCalc(44px);
+			@include border-radius ($global-radius);
+		}
+	}
+
+	.post-button {
+		margin-bottom: 0;
+		@media #{$small} {
+			width: 20%;
+		}
+	}
+
+	.user-avatar img {
+		margin-top: 0;
+		border: 2px solid transparent !important;
+
+		&:hover {
+			border-color: $gray !important;
+			transition: border 0.3s;
+		}
+	}
+	.comments {
+		.comment {
+			@include vMargin(2, bottom);
+			.user-avatar {
+				.author {
+					@extend .regular-button;
+					display: block;
+				}
+			}
+			.content {
+				@include grid-column(12);
+				overflow: hidden;
+				@media #{$small} { 
+					@include grid-column(10);
+					&:after {
+						left: -18px;
+					}
+
+					&:before {
+						left: -20px;
+					}
+				}
+			}
+		}
+	}
+	.comment-composer {
+		a{
+			@include vMargin(1);
+		}
+	}
+}
+.wall-comment {
+	@extend %gridRowNest;
+	margin-bottom: baseCalc(1);
+
+	.user-avatar {
+		@include grid-column(2);
+	}
+
+	.wall-content-wrapper {
+		@include grid-column(12);
+		padding-top: 0;
+		padding-bottom: 0;
+
+		@media #{$small} { 
+			@include grid-column(10);
+		}
+	}
+
+	.wall-content-wrapper .delete a,
+	.comment-content .delete a,
+	.privacy-level-Friends,
+	.privacy-level-Private {
+		@include iconSize(30px);
+		position: absolute;
+	}
+
+	.wall-content-wrapper .delete a,
+	.comment-content .delete a {
+		top: 0.5em;
+		right: 1.7em;
+		@include wall-icons-sprite(close);
+		text-indent: -200px;
+
+		&:hover {
+			@include opacity(0.6);
+		}
+	}
+
+	.privacy-level-Friends {
+		top: 0.25em;
+		right: 2.7em;
+		@include wall-icons-sprite(unlocked);
+	}
+
+	.privacy-level-Private {
+		top: 0.25em;
+		right: 2.7em;
+		@include wall-icons-sprite(locked);
+	}
+
+	.options {
+		font-size: 0.8em;
+		color: $even-darker-gray;
+		@include clearfix;
+	}
+
+	.rating {
+		float: left;
+		position: relative;
+		padding-right: 0.75em;
+		margin-right: 0.75em;
+
+		.monox-rating > div {
+			float: left;
+		}
+	}
+
+	.date {
+		position: relative;
+		color: $even-darker-gray;
+		font-size: 0.8em;
+		margin-left: 1em;
+		padding-left: 1.25em;
+
+		&:before {
+			content: "\2022";
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+
+	.content {
+		background-color: white;
+		padding: emCalc(15);
+		border: 1px solid $dark-gray;
+		padding-right: emCalc(25);
+		overflow: hidden;
+		a {
+			word-break: break-all;
+		}
+		@media #{$small} {
+			&:after, &:before { 
+				content: ' ';
+				display: block;
+				position: absolute;
+				border-style: solid;
+				width: 0;
+				height: 0;
+			}
+
+			&:after {
+				top: 15px;
+				left: -2px;
+				border-color: transparent white transparent transparent;
+				border-width: 9px;
+			}
+
+			&:before {
+				top: 14px;
+				left: -4px;
+				border-color: transparent $dark-gray transparent transparent;
+				border-width: 10px;
+			}
+		}
+	}
+
+	.comments {
+		@include grid-column(11, $offset: 1);
+		margin-top: 1em;
+		@media #{$small} {
+			@include grid-column(10, $offset: 2);
+		}
+
+		.comment {
+			position: relative;
+			@include clearfix;
+
+			&:not(:nth-of-type(2)) {
+				border-top: 1px solid $dark-gray;
+				padding-top: 1em;
+			}
+
+			.comment-content {
+				margin-top: baseCalc(1);
+				@include grid-column(10);
+			}
+		}
+	}
+
+	.file-gallery {
+		@include grid-column(11, $offset: 1);
+		margin-top: 1em;
+
+		@media #{$small} {
+			@include grid-column(10, $offset: 2);
+		}
+
+		h3 {
+			//@include adjust-font-size-to(18px, 1.5);
+			//margin-top: -0.2em;
+			//font-family: $body-font-family;
+		}
+	}
+}
+.activity-item {
+	.content {
+		position: relative;
+		@media #{$small} { 
+			&:after {
+				left: -18px;
+			}
+
+			&:before {
+				left: -20px;
+			}
+		}
+	}
+	.img-icon {
+		position: absolute;
+		top: emCalc(10px);
+		right: emCalc(10px);
+	}
+	.user-avatar {
+		img{
+			width: 80% !important;
+		}
+	}
+	.privacy-level-Friends {
+		right: 0em;
+	}
+
+	.privacy-level-Private {
+		right: 0em;
+	}
+}
+#user-profile {
+	.discussion {
+		@extend %boxed-content;
+		dl {
+			dd {
+				&:last-child {
+					border-bottom: 0px;
+				}
+			}
+		}
+	}
+}
