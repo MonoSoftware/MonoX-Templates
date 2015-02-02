@@ -1,0 +1,54 @@
+﻿<div class=" jq_snNote <# PinItemBackgroundClass #> ">
+    <div class="discussion--avatar">
+        <a href="<# ProfileUrl #>" class="discussion--avatar__item"><# avatar #></a>
+    </div>
+    <div class="discussion--content discussion--item <# UnansweredClass #> <# AnsweredClass #> <# SpamClass #> <# UnapprovedClass #>">
+
+
+
+
+        <h3 class="title--regular approval-indicate">
+            <a href="<# ProfileUrl #>"><# username #></a>
+
+        </h3>
+        <div class="discussion--last-post">
+            <div class="info-box <# PinItemClass #>" title="<# AnswerToolTip #>">
+            </div><span class="date"><# date #></span>
+        </div>
+        <div class="article--fancy-post">
+            <# content #>
+        </div>
+        <div class="spacer--secondary">
+            <# files #>
+        </div>
+        #if( $RatingVisible )
+        <div class="discussion--last-post spacer--secondary">
+            <# rating #>
+        </div>
+        #end
+        <div class="discussion--links spacer--secondary">
+            <# reportpost #>
+                <# approvereportedpost #>
+                    <# edit #>
+                        <# delete #>
+                            #if( $ApproveOptionsVisible ) <# approve #>
+                                #end  #if( $SpamOptionsVisible ) <# reportham #>
+                                    <# reportspam #>
+                                        #end #if( $PinItemVisible ) <# togglepinitem #>
+                                            #end
+                                            #if( $AnsweringVisible )
+                                            <# answer #>
+                                                #end
+        </div>
+        <div class="reputation-posts discussion--last-post">
+            <span class="reputation" title="<# UserScoreToolTip #>">
+                <# userscore #>
+                    <span><# userscoretext #></span>
+            </span>
+            <span class="posts" title="<# TotalPostsToolTip #>">
+                <# totalpostscount #>
+                    <span><# totalpoststext #></span>
+            </span>
+        </div>
+    </div>
+</div>

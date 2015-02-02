@@ -1,0 +1,22 @@
+﻿<%@ Master
+    Language="C#"
+    MasterPageFile="~/Mono/MasterPages/Blank.Master"
+    AutoEventWireup="True"
+    CodeBehind="Default.Master.cs"
+    Inherits="Mono.Web.MasterPages.Default"
+    EnableTheming="true" %>
+
+<%@ Register Src="~/Mono/Controls/Header.ascx" TagPrefix="mono" TagName="Header" %>
+<%@ Register Src="~/Mono/Controls/Footer.ascx" TagPrefix="mono" TagName="Footer" %>
+
+<asp:Content ID="cpc" ContentPlaceHolderID="cp" runat="Server">    
+
+	<mono:Header ID="ctlHeader" runat="server" />
+    <asp:ContentPlaceHolder ID="cp1" runat="server" />
+
+
+    <main role="main" class="main">
+        <asp:ContentPlaceHolder ID="cp2" runat="server" />
+    </main>
+    <mono:Footer ID="ctlFooter" runat="server" />
+</asp:Content>

@@ -1,0 +1,13 @@
+﻿<%@ Master
+    Language="C#"
+    MasterPageFile="~/Mono/MasterPages/MonoX.master"
+    AutoEventWireup="true"
+    CodeBehind="Blank.master.cs"
+    Inherits="Mono.Web.MasterPages.Blank"
+    EnableTheming="true" %>
+    
+<asp:Content ID="cpc" ContentPlaceHolderID="cp" runat="Server">
+    <main role="main" class="main">
+        <asp:ContentPlaceHolder ID="cp" runat="server" />
+    </main>
+</asp:Content>

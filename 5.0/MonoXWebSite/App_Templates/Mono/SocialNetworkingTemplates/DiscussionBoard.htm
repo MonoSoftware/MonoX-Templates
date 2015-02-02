@@ -1,0 +1,56 @@
+﻿<div class="discussion--item jq_snNote <# PinItemBackgroundClass #>">
+    <div class="discussion--date-author">
+        <# date #>
+            <# author #>
+    </div>
+    
+    <h3 class="title--secondary approval-indicate"><# name #></h3>
+    
+    <div class="description"><# Description #></div>
+
+    #if( $LastTopicAuthorVisible )
+    <div class="discussion--last-post">
+        <a class="last-post" href="<# LastTopicUrl #>" title="<# LastTopicToolTip #>">
+            <span class="topic-divider"><# lasttopictext #></span>
+            <# lasttopicname #>
+        </a>
+        <a class="last-post-author" href="<# LastTopicAuthorUrl #>" title="<# LastTopicAuthorToolTip #>">
+            <span><# lasttopicauthortext #></span>
+            <# lasttopicauthorname #>
+        </a>
+        <# lasttopicdate #>
+    </div>
+    #end
+
+    #if( $LastPostVisible )
+    <div class="discussion--last-post">
+        <a class="last-post" href="<# LastPostUrl #>" title="<# LastPostToolTip #>">
+            <span><# lastposttext #></span>
+            <# lastpostname #>
+        </a>
+        <a class="last-post-author" href="<# LastPostAuthorUrl #>" title="<# LastPostAuthorToolTip #>">
+            <span><# lastpostauthortext #></span>
+            <# lastpostauthorname #>
+        </a>
+        <# lastpostdate #>
+    </div>
+    #end
+
+    #if( $PinItemVisible ) <span class="pin-icon"><# TogglePinItem #></span> #end
+
+    <div class="discussion--info">
+        <a href="<# ViewsUrl #>" title="<# ViewsToolTip #>" class="topics">
+            <# topiccount #>
+                <span><# topictext #></span>
+        </a>
+        <a href="<# ReplyUrl #>" title="<# ReplyToolTip #>" class="posts">
+            <# replycount #>
+                <span><# replytext #></span>
+        </a>
+    </div>
+
+    <div class="discussion--links">
+        <# edit #>
+            <# delete #>
+    </div>
+</div>

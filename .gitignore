@@ -63,3 +63,5 @@
 /4.7/Modern/MonoX/Mobile
 
 /4.7/Modern/MonoX/*.ashx
+/5.0/MonoXWebSiteExcludeList.txt
+/5.0/CopyMonoXTheme.cmd

@@ -1,0 +1,150 @@
+<%@ Master 
+    Language="C#" 
+    AutoEventWireup="true" 
+    Inherits="MonoSoftware.MonoX.MasterPages.MonoX" 
+    EnableTheming="true" 
+    MasterPageFile="~/MonoX/MasterPages/UpdatePanel.master"
+    Codebehind="MonoX.master.cs" %>
+    
+    
+<%@ Register TagPrefix="MonoX" TagName="ModeChanger" Src="~/MonoX/controls/ModeChanger.ascx" %>
+<%@ Register TagPrefix="MonoX" TagName="LocaleChanger" Src="~/MonoX/controls/LocaleChanger.ascx" %>
+<%@ Register Src="~/MonoX/controls/PageTasks.ascx" TagPrefix="MonoX" TagName="PageTasks" %>
+<%@ Register Assembly="MonoX" Namespace="MonoSoftware.MonoX" TagPrefix="portal" %>
+<%@ Register TagPrefix="MonoX" TagName="Editor" Src="~/MonoX/ModuleGallery/MonoXHtmlEditor.ascx" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<%@ Import Namespace="MonoSoftware.MonoX.Resources"  %>
+
+        <asp:Content ID="contentUP" ContentPlaceHolderID="cp" runat="server">
+        <portal:PortalWebPartManager ID="wpm" runat="server" CommittingChanges="False" HasUnapprovedChanges="False" OnInit="PortalWebPartManager_Init" >
+            <Personalization InitialScope="Shared" />
+        </portal:PortalWebPartManager>
+
+        <asp:Panel ID="pnlToggle" runat="server" CssClass="adminPanelTopBar">
+            <table runat="server" id="tblTop" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td>
+                        <div class="admin-bar-holder">
+                            <div class="label-holder">
+                                <span><asp:literal runat="server" ID="ltlClickHere"></asp:literal> <span style="display: none"><asp:Literal runat="server" Text="|" ID="ltlSeparator"></asp:Literal></span>
+                            </div>
+                            <div class="admin-holder">
+                                <span class="portalAdminBgImg" onclick="var event = arguments[0] || window.event; if (event.cancelBubble != null) event.cancelBubble=true; else event.stopPropagation();">
+                                    <asp:HyperLink NavigateUrl='<%# MonoSoftware.MonoX.Utilities.LocalizationUtility.RewriteLink("~/MonoX/Admin/Default.aspx") %>' ID="lnkAdminDefault" runat="server">
+                                        <asp:Literal runat="server" ID="ltlPortalAdmin"></asp:Literal>
+                                    </asp:HyperLink>
+                                </span>
+                            </div>
+                            <div class="login-holder">
+                                <asp:LoginName ID="loginNameShort" runat="server" />
+                                <asp:LoginStatus ID="loginStatusShort" runat="server" />
+                            </div>                   
+                            
+                            <div>
+                                <span><asp:Literal runat="server" ID="ltlCache"></asp:Literal></span>
+                                <asp:HyperLink runat="server" ID="lnkRefreshCache" OnClientClick="var event = arguments[0] || window.event; if (event.cancelBubble != null) event.cancelBubble=true; else event.stopPropagation();"></asp:HyperLink>
+                            </div>
+                            <div class="help-holder">
+                                <asp:HyperLink ID="lnkMonoHelp" Target="_blank" runat="server" NavigateUrl="http://monox.mono-software.com/Downloads/#MonoX" >
+                                    <asp:Image id="imgHelp" ImageUrl="<%$ Code: MonoSoftware.MonoX.Paths.App_Themes.All.DefaultAdmin.img.Help20_png %>" style="border:0;" runat="server" />
+                                </asp:HyperLink>
+                            </div>
+                            <div class="info-holder">
+                                <span><asp:Literal runat="server" ID="ltlInfo"></asp:Literal></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="open-close-icon">
+                        <div class="open-close-options">
+                            <asp:Image ImageUrl="<%$ Code: MonoSoftware.MonoX.Paths.App_Themes.All.DefaultAdmin.img.expandSlidingAreaIcon_gif %>" ID="imgToggle" runat="server" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
+        
+        <div id="toolbox_content" runat="server" class="property-holder">
+            <asp:Panel ID="pnlToolboxMain" runat="server" ScrollBars="Auto" Width="100%" Height="0">
+                <telerik:RadTabStrip ID="tabAdminStrip" CssClass="tabStripHeader" runat="server" MultiPageID="adminMultiPage" SelectedIndex="0" CausesValidation="false" Skin="MetroTouch" >
+                    <Tabs> 
+                        <telerik:RadTab ID="tabPageTasksPane" runat="server" PageViewID="PageTasksPaneView"></telerik:RadTab>
+                        <telerik:RadTab ID="tabEditorPane" runat="server" PageViewID="EditorPaneView"></telerik:RadTab>
+                        <telerik:RadTab ID="tabCatalogPane" runat="server" PageViewID="CatalogPaneView"></telerik:RadTab>
+                        <telerik:RadTab ID="tabConnectionsPane" runat="server" PageViewID="ConnectionsPaneView"></telerik:RadTab>
+                        <telerik:RadTab ID="tabControlsPane" runat="server" PageViewID="ControlsPaneView"></telerik:RadTab>
+                    </Tabs>
+                </telerik:RadTabStrip>
+                
+                <telerik:RadMultiPage id="adminMultiPage" runat="server" SelectedIndex="0" Width="100%">
+                    <telerik:RadPageView ID="PageTasksPaneView" runat="server" Width="100%" Skin="MetroTouch" CssClass="property-fields-first">
+                            <MonoX:PageTasks ID="ctlPageTasks" runat="server" />
+                    </telerik:RadPageView>
+                    <telerik:RadPageView ID="EditorPaneView" runat="server" Skin="MetroTouch" CssClass="property-fields-menu">
+                        <portal:CollapsibleEditorZone ID="editorZone" runat="server" EditorPartsAdded="False" Width="100%">
+                            <ZoneTemplate>
+                                <portal:PropertyGridEditorPart ID="propertyGridEditorPart" CssClass="monoxEditorPart" runat="server" />
+                                <asp:AppearanceEditorPart ID="appearanceEditorPart" runat="server" CssClass="admin-input-form" Width="100%" />
+                                <asp:LayoutEditorPart ID="layoutEditorPart" runat="server" CssClass="admin-input-form" Width="100%" />
+                                <asp:BehaviorEditorPart ID="behaviorEditorPart" runat="server" CssClass="admin-input-form" Width="100%" />
+                            </ZoneTemplate>
+                        </portal:CollapsibleEditorZone>
+                    </telerik:RadPageView>
+                    <telerik:RadPageView ID="CatalogPaneView" runat="server" Skin="MetroTouch" CssClass="property-fields-catalogue">
+                        <portal:PortalCatalogZone ID="catalogZone" runat="server" >
+                            <ZoneTemplate>
+                                <portal:AutoRegisterCatalogPart ID="autoRegisterCatalogPart" runat="server" Title="<% $Code: DefaultResources.MonoXMaster_AutoRegisterCatalogPart_Title %>"  />
+                                <portal:PortalImportCatalogPart ID="importCatalogPart" runat="server" Title="<% $Code: DefaultResources.MonoXMaster_ImportCatalogPart_Title %>" />
+                                <asp:DeclarativeCatalogPart ID="declarativeCatalogPart" runat="server" Title="<% $Code: DefaultResources.MonoXMaster_DeclarativeCatalogPart_Title %>">
+                                    <WebPartsTemplate>
+                                        <MonoX:Editor ID="htmlEditor" runat="server" Title="Html editor" />
+                                    </WebPartsTemplate>
+                                </asp:DeclarativeCatalogPart>
+                                <portal:CopiedCatalogPart ID="copiedCatalogPart" runat="server" Title="<% $Code: DefaultResources.MonoXMaster_CopiedCatalogPart_Title %>"  />
+                                <portal:HiddenCatalogPart ID="hiddenCatalogPart" runat="server" Title="<% $Code: DefaultResources.MonoXMaster_HiddenCatalogPart_Title %>" />
+                            </ZoneTemplate>
+                        </portal:PortalCatalogZone>
+                    </telerik:RadPageView>
+                    <telerik:RadPageView ID="ConnectionsPaneView" runat="server" Skin="MetroTouch">
+                        <div style="padding:4px;"><asp:Label runat="server" ID="lblConnectionsDescription"></asp:Label></div>
+                        <portal:PortalConnectionsZone ID="connectionsZone" runat="server" />
+                    </telerik:RadPageView>
+                    <telerik:RadPageView ID="ControlsPaneView" runat="server" Skin="MetroTouch">
+                        <div class="edit-part-source-list">
+                            <strong><asp:Literal runat="server" ID="ltlControlsHeader"></asp:Literal></strong>
+                            <ul>
+                                <asp:Repeater runat="server" ID="rptControls">
+                                    <ItemTemplate>
+                                        <li><a href="#" onclick='<%# Eval("url")%>'><%# Eval("name")%></a></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
+                        </div>
+                    </telerik:RadPageView>
+                </telerik:RadMultiPage>
+            </asp:Panel>
+        </div>
+        <ajaxToolkit:CollapsiblePanelExtender ID="cpeToolbox" runat="Server" 
+        TargetControlID="pnlToolboxMain"
+        ExpandControlID="pnlToggle"
+        CollapseControlID="pnlToggle"
+        ImageControlID="imgToggle"
+        ExpandedImage="<%$ Code: MonoSoftware.MonoX.Paths.App_Themes.All.DefaultAdmin.img.ClosePanel_gif %>"
+        ExpandedText="Collapse"
+        CollapsedImage="<%$ Code: MonoSoftware.MonoX.Paths.App_Themes.All.DefaultAdmin.img.OpenPanel_gif %>"
+        CollapsedText="Expand"
+        Collapsed="True" BehaviorID="ctl00_cpeToolbox" Enabled="True"   
+        /> 
+
+        <asp:ScriptManagerProxy ID="scriptManagerProxy" runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="~/App_Themes/Default/javascripts/custom.modernizr.js" />
+                <asp:ScriptReference Path="~/App_Themes/Default/javascripts/foundation.js" />
+                <asp:ScriptReference Path="~/App_Themes/Default/javascripts/foundation.orbit.js" />
+            </Scripts>
+        </asp:ScriptManagerProxy>
+
+        <asp:ContentPlaceHolder ID="cp" runat="server">
+        </asp:ContentPlaceHolder>
+
+        </asp:Content>
